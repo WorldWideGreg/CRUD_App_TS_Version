@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import { BiPlusCircle } from "react-icons/bi";
 import Success from "./success";
+import { DataType } from "../pages/utils";
 
 const formReducer = (state:any, event:any) => {
   return {
@@ -11,7 +12,7 @@ const formReducer = (state:any, event:any) => {
 
 function AddUserForm() {
   const [formData, setFormData] = useReducer(formReducer, {});
-  const handleSubmit = (event:any) => {
+  const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(JSON.stringify(formData));
   };
@@ -45,7 +46,7 @@ function AddUserForm() {
       </div>
       <div className="input-type">
         <input
-          type="text"
+          type="email"
           onChange={setFormData}
           name="email"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"

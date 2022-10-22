@@ -1,5 +1,6 @@
 import { BiEdit, BiTrashAlt } from "react-icons/bi";
 import data from "../database/data.json";
+import { DataType } from "../pages/utils";
 
 function Table() {
   return (
@@ -29,8 +30,7 @@ function Table() {
       <tbody className="bg-gray-200">
         {
           data.map((obj,i)=> <Tr {...obj} key={i} />)
-         
-        }
+       }
         
 
       </tbody>
@@ -38,7 +38,7 @@ function Table() {
   );
 }
 
-function Tr({id,name,avatar,email,salary,date,status}:any) {
+function Tr({id,name,avatar,email,salary,date,status}:DataType) {
   return (
     <tr className="bg-gray-50 text-center">
       <td className="px-16 py-2 flex flex-row items-center">
