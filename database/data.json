@@ -1,0 +1,46 @@
+[
+{
+    "id":1,
+    "name":"Greg MOREL",
+    "avatar":"https://randomuser.me/api/portraits/men/32.jpg",
+    "email":"g.morel.apps@gmail.com",
+    "salary":"",
+    "date":"2022-10-19",
+    "status":"Active"
+},
+{
+    "id":2,
+    "name":"Katosh T",
+    "avatar":"https://randomuser.me/api/portraits/women/25.jpg",
+    "email":"theK@gmail.com",
+    "salary":"456",
+    "date":"2022-10-19",
+    "status":"Active"
+},
+{
+    "id":3,
+    "name":"Zozo ELROBOT",
+    "avatar":"https://randomuser.me/api/portraits/men/51.jpg",
+    "email":"zozonotnono@gmail.com",
+    "salary":"",
+    "date":"2022-10-19",
+    "status":"Active"
+},
+{
+    "id":4,
+    "name":"Lu-K STAGNETTE",
+    "avatar":"https://randomuser.me/api/portraits/men/12.jpg",
+    "email":"Klu@gmail.com",
+    "salary":"456",
+    "date":"2022-10-19",
+    "status":"Active"},
+{
+    "id":5,
+    "name":"HeyLeks MT",
+    "avatar":"https://randomuser.me/api/portraits/men/25.jpg",
+    "email":"smallbutstrong@gmail.com",
+    "salary":"456",
+    "date":"2022-10-19",
+    "status":"Active"
+}
+]
