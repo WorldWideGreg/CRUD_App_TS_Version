@@ -16,9 +16,10 @@ function AddUserForm() {
     console.log(JSON.stringify(formData));
   };
 
-  if (Object.keys(formData).length > 0) {
-    return <Success message={"New Teamate Added"} />;
-  }
+{/* success message */}
+  {/*if (Object.keys(formData).length > 0) {
+    return <Success message={"New Teamate Added"}/>;
+  } */}
 
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
