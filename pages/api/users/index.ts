@@ -1,6 +1,6 @@
 import connectMongo from "../../../database/connect"
 import type { NextApiRequest, NextApiResponse } from 'next'
-import {getUsers, postUser, putUser,deleteUser} from "../../../database/controler"
+import {getUsers, postUser} from "../../../database/controler"
 import { Data } from '../../../pages/utils'
 
 
@@ -18,13 +18,7 @@ export default async function handler(
             break;
         case 'POST':
             await postUser(req,res)
-            break;
-        case 'PUT':
-            await putUser(req,res)
-            break;
-        case 'DELETE':
-            await deleteUser(req,res)
-            break;
+            break;        
         default:
             res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE'])
             res.status(405).end(`Method ${method} Not Allowed`)
