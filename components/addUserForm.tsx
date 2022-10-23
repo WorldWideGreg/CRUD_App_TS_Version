@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { ChangeEventHandler, useReducer } from "react";
 import { BiPlusCircle } from "react-icons/bi";
 import Success from "./success";
 import { DataType } from "../pages/utils";

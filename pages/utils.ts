@@ -5,5 +5,13 @@ export type DataType = {
     email: string
     salary: string
     date: string
-    status: string    
+    status: string 
+  }
+
+export type Data = {
+    method?: string
+    name?: string
+    user?: string
+    error?: string
+    users?: any[]    
   }
