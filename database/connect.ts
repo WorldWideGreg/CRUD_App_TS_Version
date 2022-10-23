@@ -5,7 +5,7 @@ const connectMongo = async () => {
 try {
    const {connection}:any = mongoose.connect(process.env.MONGO_URI)
 
-   if (connection.readyState === 1) {
+   if (connection.readyState == 1) {
       console.log('MongoDB Connected')
    }
 

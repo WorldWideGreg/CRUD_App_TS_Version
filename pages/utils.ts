@@ -13,5 +13,6 @@ export type Data = {
     name?: string
     user?: string
     error?: string
-    users?: any[]    
+    users?:any[]
+    deleted?: string
   }
