@@ -16,17 +16,17 @@ export default function UserRow(UserData:UserTypes) {
     return (
       <tr className="bg-gray-50 text-center">
         <td className="px-16 py-2 flex flex-row items-center">
-          <img src={avatar||"#"} alt="" className="h-10 w-10 rounded-full object-cover" />
-          <span className="text-center ml-2 font-semibold">{name||"Unknown"}</span>
+          <img src={avatar} alt="" className="h-10 w-10 rounded-full object-cover" />
+          <span className="text-center ml-2 font-semibold">{name}</span>
         </td>
         <td className="px-16 py-2">
-          <span>{email||"Unknown"}</span>
+          <span>{email}</span>
         </td>
         <td className="px-16 py-2">
-          <span>{salary||"Unknown"}</span>
+          <span>{salary}</span>
         </td>
         <td className="px-16 py-2">
-          <span>{date||"Unknown"}</span>
+          <span>{date}</span>
         </td>
         <td className="px-16 py-2">
           <button>
