@@ -18,7 +18,7 @@ export async function getUsers(
   }
 }
 
-//getSolo
+//getUser
 export async function getUser(
     req: NextApiRequest,
     res: NextApiResponse<Data>){

@@ -18,7 +18,8 @@ export default async function handler(
             break;
         case 'POST':
             await postUser(req,res)
-            break;        
+            break;
+        
         default:
             res.setHeader('Allow', ['GET', 'POST'])
             res.status(405).end(`Method ${method} Not Allowed`)
