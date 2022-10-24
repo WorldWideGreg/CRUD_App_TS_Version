@@ -1,4 +1,4 @@
-export type DataType = {
+export type UserTypes = {
     id: number
     name: string
     avatar: string

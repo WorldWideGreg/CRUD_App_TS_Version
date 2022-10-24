@@ -1,8 +1,8 @@
 import { BiEdit, BiTrashAlt } from "react-icons/bi";
 import data from "../database/data.json";
-import { DataType } from "../pages/utils";
+import { UserTypes } from "../pages/utils";
 
-function Table() {
+export default function Table() {
   return (
     <table className="min-w-full table-auto">
       <thead>
@@ -29,16 +29,25 @@ function Table() {
       </thead>
       <tbody className="bg-gray-200">
         {
-          data.map((obj,i)=> <Tr {...obj} key={i} />)
+          data.map((UserData,id)=> <UserRow {...UserData} key={id} />)
        }
         
-
       </tbody>
     </table>
   );
 }
 
-function Tr({id,name,avatar,email,salary,date,status}:DataType) {
+function UserRow(UserData:UserTypes) {
+  
+  const {id, 
+    name='unknown', 
+    avatar='#', 
+    email='unknown', 
+    salary='unknown', 
+    date='unknown', 
+    status='unknown'
+  } = UserData;
+
   return (
     <tr className="bg-gray-50 text-center">
       <td className="px-16 py-2 flex flex-row items-center">
@@ -72,4 +81,3 @@ function Tr({id,name,avatar,email,salary,date,status}:DataType) {
     </tr>
   );
 }
-export default Table;

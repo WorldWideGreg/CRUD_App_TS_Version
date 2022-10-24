@@ -1,10 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Users from '../model/user'
 import { Data } from '../pages/utils'
-/* controller.ts */
 
 
-//get : http://localhost:3000/api/users
+//get 
 export async function getUsers(
     req: NextApiRequest,
     res: NextApiResponse<Data>) {
@@ -18,8 +17,8 @@ export async function getUsers(
     res.status(404).json({error: "Error fetching data"})
   }
 }
-//getSolo : http://localhost:3000/api/users
 
+//getSolo
 export async function getUser(
     req: NextApiRequest,
     res: NextApiResponse<Data>){
@@ -35,8 +34,7 @@ export async function getUser(
 }
 
 
-//post : http://localhost:3000/api/users
-
+//post 
 export async function postUser(
     req: NextApiRequest,
     res: NextApiResponse<Data>){
@@ -52,8 +50,7 @@ export async function postUser(
     }
 }
 
-//put : http://localhost:3000/api/users/:id
-
+//put 
 export async function putUser(
     req: NextApiRequest,
     res: NextApiResponse<Data>){
@@ -72,8 +69,7 @@ export async function putUser(
     }
 }
 
-//delete : http://localhost:3000/api/users/:id
-
+//delete
 export async function deleteUser(
     req: NextApiRequest,
     res: NextApiResponse<Data>){
