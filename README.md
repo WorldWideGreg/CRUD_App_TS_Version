@@ -1,4 +1,4 @@
-CRUD App structure. Techs: Next.Js, React - typescript, TailwindCSS, MongoDB.
+CRUD App structure. Techs: Next.Js, React - typescript, TailwindCSS, MongoDB.  
 It's a simple application for doing some team management.  
 The point of this app is to have the team dashboard with the usefull content displayed for each teamate (I choose some random things, like firstname / lastname/ birthday/ salary or if the teamate is available or not).  
 To this dashboard I attach a hideable form that could create a teamate and make it appear in the board.  
