@@ -1,7 +1,7 @@
 import { ChangeEventHandler, useReducer } from "react";
 import { BiPlusCircle } from "react-icons/bi";
 import Success from "./success";
-import { DataType } from "../pages/utils";
+import { UserTypes } from "../pages/utils";
 
 const formReducer = (state:any, event:any) => {
   return {

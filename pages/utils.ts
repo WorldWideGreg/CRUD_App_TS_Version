@@ -1,3 +1,5 @@
+
+
 export type UserTypes = {
     id: number
     name: string
@@ -13,6 +15,6 @@ export type Data = {
     name?: string
     user?: string
     error?: string
-    users?:any[]
+    users?: any[]
     deleted?: string
   }
