@@ -1,8 +1,19 @@
 import { UserTypes } from "../pages/utils";
 import { BiEdit, BiTrashAlt } from "react-icons/bi";
+import { useSelector, useDispatch } from "react-redux";
+import {toggleChangeAction} from '../redux/reducer'
 
 
 export default function UserRow(UserData:UserTypes) {
+
+  const visible = useSelector((state: any) => state.app.client.toggleForm)
+
+  const dispatch = useDispatch()
+
+  const onUpdate = () => {
+    dispatch(toggleChangeAction())
+    console.log(visible)
+  }
   
     const {id, 
       name='unknown', 
@@ -37,7 +48,7 @@ export default function UserRow(UserData:UserTypes) {
         </td>
         <td className="px-16 py-2 flex justify-around gap-5">
           <button className="cursor">
-            <BiEdit size={25} color={"blue"}></BiEdit>
+            <BiEdit onClick={onUpdate} size={25} color={"blue"}></BiEdit>
           </button>
           <button className="cursor">
             <BiTrashAlt size={25} color={"red"}></BiTrashAlt>

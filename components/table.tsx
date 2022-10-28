@@ -1,12 +1,13 @@
 import UserRow from "./userRow";
-import { getUser } from "../lib/fetcher"
+import { getUsers } from "../lib/fetcher"
 import { useQuery} from "react-query";
 import { UserTypes } from "../pages/utils";
- 
-export default function Table() {
+import { useSelector } from "react-redux";
 
-  
-  const {isLoading, isError, data, error} = useQuery('users', getUser)  
+export default function Table() { 
+
+
+  const {isLoading, isError, data, error} = useQuery('users', getUsers)  
     if (isLoading) return <div>Loading your perfect team...</div>
     if (isError) return <div><>Error:{error}</></div>
 
