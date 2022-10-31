@@ -39,7 +39,7 @@ function AddUserForm() {
   if(addMutation.isLoading) return <div> Loading... </div>  
   if(addMutation.isError) return <Error message={"Woops a problem occured!"} />
   if(addMutation.isSuccess) return <Success message={"Welcome to this new teamate"} />
- 
+  
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
