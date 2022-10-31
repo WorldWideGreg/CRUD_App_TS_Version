@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { BiBrush } from "react-icons/bi";
 import Success from "./success";
-import { DataType } from "../pages/utils";
+import { UserTypes } from "../pages/utils";
 
 
 const formReducer = (state:any, event:any) => {
@@ -17,10 +17,6 @@ function UpdateUserForm() {
     event.preventDefault();
     console.log(JSON.stringify(formData));
   };
-{/* success message */}
-  {/*if (Object.keys(formData).length > 0) {
-    return <Success message={"New Teamate Added"}/>;
-  } */}
 
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>

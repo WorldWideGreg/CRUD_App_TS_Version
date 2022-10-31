@@ -1,7 +1,9 @@
 
 
 export type UserTypes = {
-    id: number
+    id?: number
+    firstName?: string
+    lastName?: string
     name: string
     avatar: string
     email: string

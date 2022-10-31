@@ -2,7 +2,6 @@ import UserRow from "./userRow";
 import { getUsers } from "../lib/fetcher"
 import { useQuery} from "react-query";
 import { UserTypes } from "../pages/utils";
-import { useSelector } from "react-redux";
 
 export default function Table() { 
 

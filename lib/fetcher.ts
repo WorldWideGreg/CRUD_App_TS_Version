@@ -1,3 +1,4 @@
+import { UserTypes } from "../pages/utils"
 const LOCAL_URL = 'http://localhost:3000'
 //all users
 export const getUsers = async () => {
@@ -16,7 +17,7 @@ export const getUser = async (userId:string) =>{
 }
 
 //add user
-export async function addUser(formData:JSON){
+export async function addUser(formData:UserTypes){
    try{
       const Options ={
          method: "POST",
@@ -34,7 +35,7 @@ export async function addUser(formData:JSON){
 
 //update user
 
-export async function updateUser(formData:JSON, userId:string){
+export async function updateUser(formData:UserTypes, userId:string){
    try{
       const Options ={
          method: "PUT",
