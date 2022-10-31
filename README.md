@@ -11,7 +11,7 @@ a User full CRUD app with login to create a sort of task/todo list. and with an 
 
 Actual version => The front-end is globally functionnal, the polish will come later. The app is connected to mongoDB.
 Todo:
--Connect form to MongoDB.
+-Connect form to MongoDB (partially done, missing the updateUser and deleteUser)
 -Add tests (Jest/Vitest) for unit Testing.
 -Add End to End test (Cypress/Playwright).
 -Polish front-end.
