@@ -4,7 +4,7 @@ import Success from "./success";
 import Error from "./error";
 import { UserTypes } from "../pages/utils";
 import {useQueryClient, useMutation} from 'react-query'
-import {addUser} from "../lib/fetcher"
+import {addUser, getUsers} from "../lib/fetcher"
 
 const formReducer = (state:any, event:any) => {
   return {
@@ -15,9 +15,10 @@ const formReducer = (state:any, event:any) => {
 
 function AddUserForm() {
 
+  const queryClient = useQueryClient()
   const [formData, setFormData] = useReducer(formReducer, {});
   const addMutation = useMutation(addUser,{
-    onSuccess:()=> console.log('Data inserted')
+    onSuccess:  () =>  queryClient.prefetchQuery('users',getUsers)
   })
 
 
@@ -37,14 +38,14 @@ function AddUserForm() {
 
   if(addMutation.isLoading) return <div> Loading... </div>  
   if(addMutation.isError) return <Error message={"Woops a problem occured!"} />
-  if(addMutation.isSuccess) return <Success message={"Welcome to this New Teamate"} />
+  if(addMutation.isSuccess) return <Success message={"Welcome to this new teamate"} />
  
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
-          name="firstname"
+          name="firstName"
           onChange={setFormData}
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           placeholder="FirstName"
@@ -55,7 +56,7 @@ function AddUserForm() {
         <input
           type="text"
           onChange={setFormData}
-          name="lastname"
+          name="lastName"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           placeholder="LastName"
           required
