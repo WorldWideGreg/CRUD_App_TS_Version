@@ -15,7 +15,7 @@ Todo:
 -Connect form to MongoDB (partially done, missing the updateUser and deleteUser)
 -Add tests (Jest/Vitest) for unit Testing.
 -Add End to End test (Cypress/Playwright).
--Polish front-end.
+-Polish front-end (CrossBROWSER tests -- Problem detected on mozilla (Due to dark theme?))
 -Deploy it and insert in portfolio.
 -Develop the Options and Super Options.
 
