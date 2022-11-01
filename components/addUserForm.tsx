@@ -41,7 +41,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           name="firstName"
           onChange={setFormData}
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md bg-slate-500 "
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400 "
           placeholder="Firstname"
           required
         />
@@ -51,7 +51,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           onChange={setFormData}
           name="lastName"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md  bg-slate-500"
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
           placeholder="Lastname"
           required
         />
@@ -61,7 +61,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="email"
           onChange={setFormData}
           name="email"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md  bg-slate-500"
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
           placeholder="E-mail"
           required
         />
@@ -71,7 +71,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           onChange={setFormData}
           name="phone"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md  bg-slate-500"
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
           placeholder="Phone Number"
         />
       </div>
@@ -80,13 +80,13 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="date"
           onChange={setFormData}
           name="date"
-          className="border border-slate-600 px-5 py-3 focus:outline-none rounded-md  bg-slate-500"
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
           placeholder="birthday"
           required
         />
       </div>
 
-      <div className="flex gap-10 items-center">
+      <div className=" bg-slate-400 border border-slate-600 rounded-md px-10 gap-10 flex items-center">
         <div className="form-check">
           <input
             type="radio"
@@ -116,8 +116,8 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           </label>
         </div>
       </div>
-      <button className="flex justify-center text-md w-1/4 bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-300 hover:text-gray-800">
-        Add{" "}
+      <button className="flex justify-center text-md w-1/4 bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-300 hover:text-gray-800 shadow-lg shadow-slate-600/50">
+        Submit{" "}
         <span className="px-1">
           {" "}
           <BiPlusCircle size={22}></BiPlusCircle>{" "}

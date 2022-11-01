@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from "react";
 import { BiCheck, BiUserPlus, BiX } from "react-icons/bi";
 import Table from "../components/table";
 import Form from "../components/form";
@@ -7,8 +8,8 @@ import { toggleChangeAction, deleteAction } from "../redux/reducer";
 import { deleteUser, getUsers } from '../lib/fetcher'
 import { useQueryClient } from "react-query";
 import AppFooter from "../components/footer";
-
-
+import Image from "next/image";
+import logo from "../public/images/CRUD.png"
 
 export default function Home() {
 
@@ -45,7 +46,10 @@ export default function Home() {
       </Head>
 
       <main className="py-5">
-        <h1 className="mx-auto text-3xl font-extrabold text-center md:text-5xl lg:text-6xl py-10 min-w-full max-w-full">
+        <div className="container flex justify-center mx-auto">
+          <Image src={logo} width="80px" height="80px" alt="CRUD" className="logo"/>
+        </div>
+        <h1 className="mx-auto text-3xl font-extrabold text-center md:text-5xl lg:text-6xl pb-10 min-w-full max-w-full">
           <span className="text-transparent bg-clip-text bg-gradient-to-r to-slate-700 from-slate-500">Team Manager</span></h1>
         <div className="flex flex-col md:flex-row justify-center items-center my-0">
         </div>
