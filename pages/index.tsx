@@ -2,17 +2,18 @@ import Head from "next/head";
 import { BiCheck, BiUserPlus, BiX } from "react-icons/bi";
 import Table from "../components/table";
 import Form from "../components/form";
-import {useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { toggleChangeAction, deleteAction } from "../redux/reducer";
-import {deleteUser, getUsers} from '../lib/fetcher'
+import { deleteUser, getUsers } from '../lib/fetcher'
 import { useQueryClient } from "react-query";
+import AppFooter from "../components/footer";
 
 
 
 export default function Home() {
 
-  const visible = useSelector((state:any) => state.app.client.toggleForm)
-  const deleteId = useSelector((state:any) => state.app.client.deleteId)
+  const visible = useSelector((state: any) => state.app.client.toggleForm)
+  const deleteId = useSelector((state: any) => state.app.client.deleteId)
   const queryClient = useQueryClient()
 
   const dispatch = useDispatch()
@@ -21,10 +22,10 @@ export default function Home() {
     dispatch(toggleChangeAction())
   }
 
-  const deleteHandler = async() => {
-    if(deleteId){     
+  const deleteHandler = async () => {
+    if (deleteId) {
       await deleteUser(deleteId)
-      await queryClient.prefetchQuery('users', getUsers )
+      await queryClient.prefetchQuery('users', getUsers)
       await dispatch(deleteAction(null))
     }
   }
@@ -43,10 +44,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="py-5">        
-      <h1 className="mx-auto text-3xl font-extrabold text-center md:text-5xl lg:text-6xl py-10 min-w-full max-w-full"><span className="text-transparent bg-clip-text bg-gradient-to-r to-slate-700 from-slate-500">Team Manager</span></h1>
-        
-        <div className="flex flex-col md:flex-row justify-center items-center my-0">        
+      <main className="py-5">
+        <h1 className="mx-auto text-3xl font-extrabold text-center md:text-5xl lg:text-6xl py-10 min-w-full max-w-full">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r to-slate-700 from-slate-500">Team Manager</span></h1>
+        <div className="flex flex-col md:flex-row justify-center items-center my-0">
         </div>
         <div className="container mx-auto flex justify-between py-5 border-b border-slate-500">
           <div className="left flex gap-3">
@@ -60,7 +61,7 @@ export default function Home() {
               </span>
             </button>
           </div>
-          { deleteId ? DeleteComponent({deleteHandler, cancelHandler}):<></>}
+          {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
         </div>
         {/* collapse form */}
         {visible ? <Form /> : <> </>}
@@ -69,21 +70,25 @@ export default function Home() {
         <div className="container mx-auto py-5">
           <Table />
         </div>
+        <div>
+          <AppFooter />
+        </div>
       </main>
     </section>
   )
 }
 
 
-function DeleteComponent({deleteHandler, cancelHandler}:any){
+function DeleteComponent({ deleteHandler, cancelHandler }: any) {
   return (
 
-  <div className="flex gap-5">
-    <p className=" py-2 flex font-extrabold">CONFIRM DELETE:</p>
-    <button onClick={deleteHandler} className="flex bg-red-500 text-white px-4 py-2  rounded-md hover:bg-rose-300 hover:border-red-500 hover:text-gray-50">
-      Yes <span className="px-1 "><BiX color='rgb(255 255 255)' size={25}/></span></button>
-    <button onClick={cancelHandler} className="flex bg-green-500 text-white px-4 py-2  rounded-md hover:bg-green-300 hover:border-green-500 hover:text-gray-50">
-      No <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25}/></span></button>
-  </div>
+    <div className="flex gap-5">
+      <p className=" py-2 flex font-extrabold">CONFIRM DELETE:</p>
+      <button onClick={deleteHandler} className="flex bg-red-500 text-white px-4 py-2  rounded-md hover:bg-rose-300 hover:border-red-500 hover:text-gray-50">
+        Yes <span className="px-1 "><BiX color='rgb(255 255 255)' size={25} /></span></button>
+      <button onClick={cancelHandler} className="flex bg-green-500 text-white px-4 py-2  rounded-md hover:bg-green-300 hover:border-green-500 hover:text-gray-50">
+        No <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25} /></span></button>
+    </div>
 
-  )}
+  )
+}
