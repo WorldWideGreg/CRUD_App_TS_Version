@@ -1,30 +1,50 @@
-import { useReducer } from "react";
-import { BiBrush } from "react-icons/bi";
+import { BiEdit } from "react-icons/bi";
 import Success from "./success";
 import { UserTypes } from "../pages/utils";
+import { dataForForms } from "../pages/utils"
+import { useQuery, useMutation, useQueryClient } from "react-query";
+import { getUser, getUsers, updateUser } from "../lib/fetcher";
 
 
-const formReducer = (state:any, event:any) => {
-  return {
-    ...state,
-    [event.target.name]: event.target.value,
-  };
-};
 
-function UpdateUserForm() {
-  const [formData, setFormData] = useReducer(formReducer, {});
-  const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
+export default function UpdateUserForm({ formId, formData, setFormData }: dataForForms) {
+
+  const queryClient = useQueryClient();  
+
+  const { isLoading, isError, data, error } = useQuery(['users', formId], () => getUser(formId))
+
+  const UpdateMutation = useMutation((newData:any) => updateUser(formId,newData),{ 
+    onSuccess:  async(data) => {
+      //queryClient.setQueryData('users', (old:any) => [data])
+      queryClient.prefetchQuery('users', getUsers)
+    }
+  })
+
+  if (isLoading) return <div> Loading... </div>
+  if (isError) return <div> Error! </div>
+
+  const { firstName, lastName, avatar, email, salary, date, status }: UserTypes = data
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(JSON.stringify(formData));
+
+    let updated = Object.assign({},data,formData)
+    
+    console.log(updated);
+
+    await UpdateMutation.mutate(updated)
   };
+
+
 
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
-          name="firstname"
+          name="firstName"
           onChange={setFormData}
+          defaultValue={firstName}
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           placeholder="FirstName"
           required
@@ -34,7 +54,8 @@ function UpdateUserForm() {
         <input
           type="text"
           onChange={setFormData}
-          name="lastname"
+          defaultValue={lastName}
+          name="lastName"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           placeholder="LastName"
           required
@@ -44,6 +65,7 @@ function UpdateUserForm() {
         <input
           type="email"
           onChange={setFormData}
+          defaultValue={email}
           name="email"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           placeholder="E-mail"
@@ -54,6 +76,7 @@ function UpdateUserForm() {
         <input
           type="text"
           onChange={setFormData}
+          defaultValue={salary}
           name="salary"
           className="border w-full px-5 py-3 focus:outline-none rounded-md"
           placeholder="Salary"
@@ -64,9 +87,9 @@ function UpdateUserForm() {
         <input
           type="date"
           onChange={setFormData}
+          defaultValue={date}
           name="date"
           className="border px-5 py-3 focus:outline-none rounded-md"
-          placeholder="birthday"
           required
         />
       </div>
@@ -76,6 +99,7 @@ function UpdateUserForm() {
           <input
             type="radio"
             required
+            defaultChecked={status === "Active"}
             onChange={setFormData}
             name="status"
             value="Active"
@@ -90,6 +114,7 @@ function UpdateUserForm() {
           <input
             type="radio"
             required
+            defaultChecked={status !== "Active"}
             onChange={setFormData}
             name="status"
             value="Inactive"
@@ -105,10 +130,9 @@ function UpdateUserForm() {
         Update
         <span className="px-1">
           {" "}
-          <BiBrush size={22}></BiBrush>{" "}
+          <BiEdit size={22}></BiEdit>{" "}
         </span>
       </button>
     </form>
   );
 }
-export default UpdateUserForm;

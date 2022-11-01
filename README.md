@@ -10,12 +10,14 @@ a login page for admin (the one who can Create Read Update and Delete teamate)
 Super Option:
 a User full CRUD app with login to create a sort of task/todo list. and with an account dashboard.
 
-Actual version => The front-end is globally functionnal, the polish will come later. The app is connected to mongoDB.
+Actual version => The front-end is globally functionnal, the polish will come later. 
+The app is a full CRUD App.
 Todo:
--Connect form to MongoDB (partially done, missing the updateUser and deleteUser)
--Add tests (Jest/Vitest) for unit Testing.
--Add End to End test (Cypress/Playwright).
--Polish front-end (CrossBROWSER tests -- Problem detected on mozilla (Due to dark theme?))
--Deploy it and insert in portfolio.
+-Some back-end polishing for catching exeptions getting more controls on things.
+  
+-Polish front-end (CrossBROWSER tests -- Problem detected on mozilla (Due to dark theme?)).
+  
+-Deploy it and insert in portfolio.  
+  
 -Develop the Options and Super Options.
 

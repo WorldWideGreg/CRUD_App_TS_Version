@@ -3,43 +3,37 @@ import { BiPlusCircle } from "react-icons/bi";
 import Success from "./success";
 import Error from "./error";
 import { UserTypes } from "../pages/utils";
-import {useQueryClient, useMutation} from 'react-query'
-import {addUser, getUsers} from "../lib/fetcher"
+import { useQueryClient, useMutation } from 'react-query'
+import { addUser, getUsers } from "../lib/fetcher"
+import { dataForForms } from "../pages/utils"
 
-const formReducer = (state:any, event:any) => {
-  return {
-    ...state,
-    [event.target.name]: event.target.value,
-  };
-};
-
-function AddUserForm() {
+export default function AddUserForm({ formData, setFormData }: dataForForms) {
 
   const queryClient = useQueryClient()
-  const [formData, setFormData] = useReducer(formReducer, {});
-  const addMutation = useMutation(addUser,{
-    onSuccess:  () =>  queryClient.prefetchQuery('users',getUsers)
+
+  const addMutation = useMutation(addUser, {
+    onSuccess: () => queryClient.prefetchQuery('users', getUsers)
   })
 
 
-  const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if(Object.keys(formData).length == 0) return console.log("No data in form");
-    let{firstName,lastName,email,salary,date,status}:UserTypes = formData;
+    if (Object.keys(formData).length == 0) return console.log("No data in form");
+    let { firstName, lastName, email, salary, date, status }: UserTypes = formData;
 
-    const model:UserTypes = {
-      name: `${firstName} ${lastName}`,
-      avatar: `https://randomuser.me/api/portraits/men/${Math.floor(Math.random()*10)}.jpg`,
+    const model: UserTypes = {
+      firstName, lastName,
+      avatar: `https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 10)}.jpg`,
       email, salary, date, status: status ?? "Active"
     }
     addMutation.mutate(model)
     console.log(JSON.stringify(formData));
   };
 
-  if(addMutation.isLoading) return <div> Loading... </div>  
-  if(addMutation.isError) return <Error message={"Woops a problem occured!"} />
-  if(addMutation.isSuccess) return <Success message={"Welcome to this new teamate"} />
-  
+  if (addMutation.isLoading) return <div> Loading... </div>
+  if (addMutation.isError) return <Error message={"Woops a problem occured!"} />
+  if (addMutation.isSuccess) return <Success message={"Welcome to this new teamate"} />
+
   return (
     <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
@@ -132,4 +126,3 @@ function AddUserForm() {
     </form>
   );
 }
-export default AddUserForm

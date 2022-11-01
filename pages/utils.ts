@@ -1,10 +1,14 @@
-
+export type dataForForms = {
+  formData : any,
+  setFormData : any,
+  formId? : any,
+}
 
 export type UserTypes = {
-    id?: number
+    _id?: number
     firstName?: string
     lastName?: string
-    name: string
+    name?: string
     avatar: string
     email: string
     salary: string
