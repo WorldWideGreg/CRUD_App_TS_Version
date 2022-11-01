@@ -43,15 +43,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="py-5">
-        <h1 className="text-xl md:text-5xl text-center font-bold py-10">
-          Team Manager
-        </h1>
-        <div className="container mx-auto flex justify-between py-5 border-b">
+      <main className="py-5">        
+      <h1 className="mx-auto text-3xl font-extrabold text-center md:text-5xl lg:text-6xl py-10 min-w-full max-w-full"><span className="text-transparent bg-clip-text bg-gradient-to-r to-slate-700 from-slate-500">Team Manager</span></h1>
+        
+        <div className="flex flex-col md:flex-row justify-center items-center my-0">        
+        </div>
+        <div className="container mx-auto flex justify-between py-5 border-b border-slate-500">
           <div className="left flex gap-3">
             <button
               onClick={handler}
-              className="flex bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-grary-50 hover:border-green-500 hover:text-gray-800"
+              className="flex bg-teal-700 text-white px-4 py-2 shadow-lg shadow-slate-600/50 rounded-md hover:bg-teal-600 hover:text-gray-800"
             >
               Add Teamate
               <span className="px-1">
@@ -78,10 +79,10 @@ function DeleteComponent({deleteHandler, cancelHandler}:any){
   return (
 
   <div className="flex gap-5">
-    <p>Are you sure ?</p>
-    <button onClick={deleteHandler} className="flex bg-red-500 text-white px-4 py-2 border rounded-md hover:bg-rose-300 hover:border-red-500 hover:text-gray-50">
+    <p className=" py-2 flex font-extrabold">CONFIRM DELETE:</p>
+    <button onClick={deleteHandler} className="flex bg-red-500 text-white px-4 py-2  rounded-md hover:bg-rose-300 hover:border-red-500 hover:text-gray-50">
       Yes <span className="px-1 "><BiX color='rgb(255 255 255)' size={25}/></span></button>
-    <button onClick={cancelHandler} className="flex bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-green-300 hover:border-green-500 hover:text-gray-50">
+    <button onClick={cancelHandler} className="flex bg-green-500 text-white px-4 py-2  rounded-md hover:bg-green-300 hover:border-green-500 hover:text-gray-50">
       No <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25}/></span></button>
   </div>
 

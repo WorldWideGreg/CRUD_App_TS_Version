@@ -19,12 +19,12 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (Object.keys(formData).length == 0) return console.log("No data in form");
-    let { firstName, lastName, email, salary, date, status }: UserTypes = formData;
+    let { firstName, lastName, email, phone, date, status }: UserTypes = formData;
 
     const model: UserTypes = {
       firstName, lastName,
       avatar: `https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 10)}.jpg`,
-      email, salary, date, status: status ?? "Active"
+      email, phone, date, status: status ?? "Active"
     }
     addMutation.mutate(model)
     console.log(JSON.stringify(formData));
@@ -41,8 +41,8 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           name="firstName"
           onChange={setFormData}
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
-          placeholder="FirstName"
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md bg-slate-500 "
+          placeholder="Firstname"
           required
         />
       </div>
@@ -51,8 +51,8 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           onChange={setFormData}
           name="lastName"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
-          placeholder="LastName"
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md  bg-slate-500"
+          placeholder="Lastname"
           required
         />
       </div>
@@ -61,7 +61,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="email"
           onChange={setFormData}
           name="email"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md  bg-slate-500"
           placeholder="E-mail"
           required
         />
@@ -70,9 +70,9 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
         <input
           type="text"
           onChange={setFormData}
-          name="salary"
-          className="border w-full px-5 py-3 focus:outline-none rounded-md"
-          placeholder="Salary"
+          name="phone"
+          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md  bg-slate-500"
+          placeholder="Phone Number"
         />
       </div>
       <div className="input-type">
@@ -80,7 +80,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="date"
           onChange={setFormData}
           name="date"
-          className="border px-5 py-3 focus:outline-none rounded-md"
+          className="border border-slate-600 px-5 py-3 focus:outline-none rounded-md  bg-slate-500"
           placeholder="birthday"
           required
         />
@@ -116,7 +116,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           </label>
         </div>
       </div>
-      <button className="flex justify-center text-md w-1/4 bg-blue-500 text-white px-4 py-2 border rounded-md hover:bg-blue-200 hover:border-blue-600 hover:text-gray-800">
+      <button className="flex justify-center text-md w-1/4 bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-300 hover:text-gray-800">
         Add{" "}
         <span className="px-1">
           {" "}

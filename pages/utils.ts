@@ -11,7 +11,7 @@ export type UserTypes = {
     name?: string
     avatar: string
     email: string
-    salary: string
+    phone: string
     date: string
     status: string 
   }

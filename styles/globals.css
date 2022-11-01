@@ -20,7 +20,17 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: black;
+    background: grey;    
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: black;
+    background: rgb(163, 163, 163);    
   }
 }
