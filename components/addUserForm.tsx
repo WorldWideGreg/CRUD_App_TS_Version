@@ -35,13 +35,13 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
   if (addMutation.isSuccess) return <Success message={"Welcome to this new teamate"} />
 
   return (
-    <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
+    <form className="mx-auto grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
           name="firstName"
           onChange={setFormData}
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400 "
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="Firstname"
           required
         />
@@ -51,7 +51,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           onChange={setFormData}
           name="lastName"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="Lastname"
           required
         />
@@ -61,7 +61,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="email"
           onChange={setFormData}
           name="email"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="E-mail"
           required
         />
@@ -71,7 +71,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           onChange={setFormData}
           name="phone"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="Phone Number"
         />
       </div>
@@ -80,13 +80,13 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="date"
           onChange={setFormData}
           name="date"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="birthday"
           required
         />
       </div>
 
-      <div className=" bg-slate-400 border border-slate-600 rounded-md px-10 gap-10 flex items-center">
+      <div className="bg-rose-poudre rounded px-10 gap-10 flex items-center">
         <div className="form-check">
           <input
             type="radio"
@@ -116,7 +116,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           </label>
         </div>
       </div>
-      <button className="flex justify-center text-md w-1/4 bg-blue-400 text-white px-4 py-2 rounded-md hover:bg-blue-300 hover:text-gray-800 shadow-lg shadow-slate-600/50">
+      <button className="flex justify-center text-md w-1/3 bg-teal-2 text-white px-4 py-2 rounded hover:bg-green-1 duration-500">
         Submit{" "}
         <span className="px-1">
           {" "}

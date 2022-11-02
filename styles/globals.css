@@ -13,7 +13,7 @@ a {
 
 * {
   box-sizing: border-box;
-  
+   
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,16 +22,18 @@ a {
   }
   body {
     color: black;
-    background: grey;    
+    background: #FFE2E2;    
   }
 }
 
 @media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
   body {
     color: black;
-    background: rgb(163, 163, 163);    
+    background: #FFE2E2;    
   }
-}
+}  
+
+ 

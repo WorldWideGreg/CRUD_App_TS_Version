@@ -45,38 +45,44 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="py-5">
-        <div className="container flex justify-center mx-auto">
-          <Image src={logo} width="80px" height="80px" alt="CRUD" className="logo"/>
+      <main className="bg-transparent ">
+        <div className="flex justify-between pb-10">
+          <div className="mx-auto absolute px-5 pt-3">
+            <Image src={logo} width="50px" height="50px" alt="CRUD" className="logo" />
+          </div>
+
+          <h1 className=" mx-auto py-5 bg-gray-700 text-3xl font-extrabold text-right px-5 min-w-full max-w-full">
+            <span className="text-white-rose">Team Manager</span>
+          </h1>
         </div>
-        <h1 className="mx-auto text-3xl font-extrabold text-center md:text-5xl lg:text-6xl pb-10 min-w-full max-w-full">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r to-slate-700 from-slate-500">Team Manager</span></h1>
-        <div className="flex flex-col md:flex-row justify-center items-center my-0">
-        </div>
-        <div className="container mx-auto flex justify-between py-5 border-b border-slate-500">
+
+        <div className=" flex justify-between py-5 mx-auto w-11/12">
           <div className="left flex gap-3">
             <button
               onClick={handler}
-              className="flex bg-teal-700 text-white px-4 py-2 shadow-lg shadow-slate-600/50 rounded-md hover:bg-teal-600 hover:text-gray-800"
+              className="flex bg-rose-500 text-white-rose px-4 py-2 rounded hover:bg-rose-600 duration-500"
             >
-              Add Teamate
               <span className="px-1">
                 <BiUserPlus size={23}></BiUserPlus>
               </span>
+              Toggle Form
             </button>
           </div>
           {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
         </div>
+
         {/* collapse form */}
-        {visible ? <Form /> : <> </>}
+        {visible ? <Form /> : <></>}
 
         {/* table */}
-        <div className="container mx-auto py-5">
+        <div className="overflow-auto w-11/12 mx-auto px-3 bg-white-rose">
           <Table />
         </div>
-        <div>
+
+        <div className=" mx-auto py-5 px-5">
           <AppFooter />
         </div>
+
       </main>
     </section>
   )
@@ -86,11 +92,11 @@ export default function Home() {
 function DeleteComponent({ deleteHandler, cancelHandler }: any) {
   return (
 
-    <div className="flex gap-5">
-      <p className=" py-2 flex font-extrabold">CONFIRM DELETE:</p>
-      <button onClick={deleteHandler} className="flex bg-red-500 text-white px-4 py-2  rounded-md hover:bg-rose-300 hover:border-red-500 hover:text-gray-50">
+    <div className="flex gap-3">
+      <p className="py-2 flex font-bold">CONFIRM DELETE:</p>
+      <button onClick={deleteHandler} className="flex bg-red-300 text-white-rose px-2 py-2  rounded hover:bg-red-500 duration-500 ">
         Yes <span className="px-1 "><BiX color='rgb(255 255 255)' size={25} /></span></button>
-      <button onClick={cancelHandler} className="flex bg-green-500 text-white px-4 py-2  rounded-md hover:bg-green-300 hover:border-green-500 hover:text-gray-50">
+      <button onClick={cancelHandler} className="flex bg-green-300 text-white-rose px-2 py-2  rounded hover:bg-green-500 duration-500">
         No <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25} /></span></button>
     </div>
 

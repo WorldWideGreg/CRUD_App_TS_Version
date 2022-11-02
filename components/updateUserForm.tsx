@@ -9,12 +9,12 @@ import { getUser, getUsers, updateUser } from "../lib/fetcher";
 
 export default function UpdateUserForm({ formId, formData, setFormData }: dataForForms) {
 
-  const queryClient = useQueryClient();  
+  const queryClient = useQueryClient();
 
   const { isLoading, isError, data, error } = useQuery(['users', formId], () => getUser(formId))
 
-  const UpdateMutation = useMutation((newData:any) => updateUser(formId,newData),{ 
-    onSuccess:  async(data) => {
+  const UpdateMutation = useMutation((newData: any) => updateUser(formId, newData), {
+    onSuccess: async (data) => {
       //queryClient.setQueryData('users', (old:any) => [data])
       queryClient.prefetchQuery('users', getUsers)
     }
@@ -28,8 +28,8 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    let updated = Object.assign({},data,formData)
-    
+    let updated = Object.assign({}, data, formData)
+
     console.log(updated);
 
     await UpdateMutation.mutate(updated)
@@ -38,14 +38,14 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
 
 
   return (
-    <form className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
+    <form className="mx-auto grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
       <div className="input-type">
         <input
           type="text"
           name="firstName"
           onChange={setFormData}
           defaultValue={firstName}
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="FirstName"
           required
         />
@@ -56,7 +56,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
           onChange={setFormData}
           defaultValue={lastName}
           name="lastName"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="LastName"
           required
         />
@@ -67,7 +67,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
           onChange={setFormData}
           defaultValue={email}
           name="email"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="E-mail"
           required
         />
@@ -78,7 +78,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
           onChange={setFormData}
           defaultValue={phone}
           name="phone"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           placeholder="Phone Number"
           required
         />
@@ -89,12 +89,12 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
           onChange={setFormData}
           defaultValue={date}
           name="date"
-          className="border border-slate-600 w-full px-5 py-3 focus:outline-none rounded-md placeholder-gray-600 bg-slate-400"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
           required
         />
       </div>
 
-      <div className=" bg-slate-400 border border-slate-600 rounded-md px-10 gap-10 flex items-center">
+      <div className=" bg-rose-poudre rounded px-10 gap-10 flex items-center">
         <div className="form-check">
           <input
             type="radio"
@@ -126,8 +126,8 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
           </label>
         </div>
       </div>
-      <button className="flex justify-center text-sm w-1/4 bg-lime-400 text-slate-500 px-4 py-2 rounded-md hover:bg-lime-200 hover:text-black shadow-lg shadow-slate-600/50">
-        Update
+      <button className="duration-500 flex justify-center text-sm w-1/3 bg-blue-01 text-white-rose px-4 py-2 rounded hover:bg-blue-02 ">
+        Save
         <span className="px-1">
           {" "}
           <BiEdit size={22}></BiEdit>{" "}

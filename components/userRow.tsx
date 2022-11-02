@@ -29,40 +29,40 @@ export default function UserRow(UserData: UserTypes) {
   }
 
   const onDelete = () => {
-    if(!visible){
+    if (!visible) {
       dispatch(deleteAction(_id))
     }
   }
 
   return (
-    <tr className="odd:bg-slate-200 even:bg-slate-300">
-      <td className="px-10 py-2 flex flex-row items-center">
-        <img src={avatar} alt="" className="h-12 w-12 rounded-full object-cover" />
-        <span className="ml-3 font-semibold">{firstName} {lastName}</span>
+    <tr className="bg-white-rose">
+      <td className="pl-0 px-4 py-2 flex flex-row">
+        <img src={avatar} alt="" className="avatar h-11 w-11 rounded-full object-cover" />
+        <span className="pl-3 py-4 font-medium text-purp-poudre">{firstName} {lastName}</span>
       </td>
-      <td className="px-10 py-2">
+      <td className="px-4 py-2 pl-0 font-medium text-purp-poudre">
         <span>{email}</span>
       </td>
-      <td className="px-10 py-2">
+      <td className="px-4 py-2 pl-0 font-medium text-purp-poudre">
         <span>{phone}</span>
       </td>
-      <td className="px-10 py-2">
+      <td className="px-4 py-2 pl-0 font-medium text-purp-poudre">
         <span>{date}</span>
       </td>
-      <td className="px-10 py-2">
+      <td className="px-4 py-2 pl-0 font-medium text-purp-poudre">
         <button>
-          <span className={`${status === "Active" ? 'bg-green-600' : 'bg-red-500'} cursor-default text-white px-5 py-1 rounded-full`}>
+          <span className={`${status === "Active" ? 'bg-green-300 text-green-500 font-bold' : 'bg-red-300 text-red-500 font-bold'} cursor-default px-2 py-1 rounded`}>
             {status}
           </span>
         </button>
       </td>
-      <td className="flex items-center">
-        <button className="cursor py-5 px-2 text-teal-700 hover:text-teal-500">
+      <td className="flex pl-0">
+        <button className="cursor py-5 px-2 text-teal-2 hover:text-teal-500 duration-500">
           <BiEdit onClick={onUpdate} size={25}></BiEdit>
         </button>
-        <button className="cursor py-5 px-2 text-orange-700 hover:text-orange-500">
+        <button className="cursor py-5 px-2 text-orange-500 hover:text-orange-600 duration-500">
           <BiTrashAlt onClick={onDelete} size={25}></BiTrashAlt>
-        </button>       
+        </button>
       </td>
     </tr>
   );
