@@ -12,12 +12,6 @@ a User full CRUD app with login to create a sort of task/todo list. and with an 
 
 Actual version => The front-end is globally functionnal, the polish will come later. 
 The app is a full CRUD App.
-Todo:
--Some back-end polishing for catching exeptions getting more controls on things.
-  
--Polish front-end (CrossBROWSER tests -- Problem detected on mozilla (Due to dark theme?)).
-  
--Deploy it and insert in portfolio.  
-  
--Develop the Options and Super Options.
-
+Still alot of work to be done.
+Video of the Merged Version (ctrl+click on picture):  
+[![IMAGE ALT TEXT](https://i9.ytimg.com/vi_webp/ap2QLKuS0zo/mq2.webp?sqp=CKS_j5sG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEcgUyhlMA8=&rs=AOn4CLB65DfX5HqYmgOx6tcEvHcuKVTydg)](https://youtu.be/ap2QLKuS0zo "CRUD app Next.JS TS Tailwind")
