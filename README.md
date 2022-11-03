@@ -14,4 +14,4 @@ Actual version => The front-end is globally functionnal, the polish will come la
 The app is a full CRUD App.
 Still alot of work to be done.
 Video of the Merged Version (ctrl+click on picture):  
-[![IMAGE ALT TEXT](https://i9.ytimg.com/vi_webp/ap2QLKuS0zo/mq2.webp?sqp=CKS_j5sG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGEcgUyhlMA8=&rs=AOn4CLB65DfX5HqYmgOx6tcEvHcuKVTydg)](https://youtu.be/ap2QLKuS0zo "CRUD app Next.JS TS Tailwind")
+[![IMAGE ALT TEXT](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Logo_of_YouTube_%282005-2006%29.svg/189px-Logo_of_YouTube_%282005-2006%29.svg.png)](https://youtu.be/ap2QLKuS0zo "CRUD app Next.JS TS Tailwind")
