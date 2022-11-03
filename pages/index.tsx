@@ -1,15 +1,41 @@
 import Head from "next/head";
-import { BiUserPlus } from "react-icons/bi";
+import React from "react";
+import { BiCheck, BiUserPlus, BiX } from "react-icons/bi";
 import Table from "../components/table";
 import Form from "../components/form";
-import { useState } from "react";
+import { useSelector, useDispatch } from 'react-redux'
+import { toggleChangeAction, deleteAction } from "../redux/reducer";
+import { deleteUser, getUsers } from '../lib/fetcher'
+import { useQueryClient } from "react-query";
+import AppFooter from "../components/footer";
+import Image from "next/image";
+import logo from "../public/images/CRUD.png"
 
-const Home = () => {
-  const [visible, setVisible] = useState(false);
+export default function Home() {
+
+  const visible = useSelector((state: any) => state.app.client.toggleForm)
+  const deleteId = useSelector((state: any) => state.app.client.deleteId)
+  const queryClient = useQueryClient()
+
+  const dispatch = useDispatch()
 
   const handler = () => {
-    setVisible(!visible);
-  };
+    dispatch(toggleChangeAction())
+  }
+
+  const deleteHandler = async () => {
+    if (deleteId) {
+      await deleteUser(deleteId)
+      await queryClient.prefetchQuery('users', getUsers)
+      await dispatch(deleteAction(null))
+    }
+  }
+
+  const cancelHandler = async () => {
+    console.log('Cancel')
+    await dispatch(deleteAction(null))
+  }
+
 
   return (
     <section>
@@ -19,33 +45,58 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="py-5">
-        <h1 className="text-xl md:text-5xl text-center font-bold py-10">
-          Team Manager
-        </h1>
-        <div className="container mx-auto flex justify-between py-5 border-b">
-          <div className="left flex gap-3">
-            <button
+      <main className="bg-transparent min-w-screen min-h-screen ">
+        <div className="flex items-center pb-10">
+          <div className="mx-auto px-3 absolute">
+            <Image src={logo} width="50px" height="50px" alt="CRUD" className="logo" />
+          </div>          
+          <h1 className="mx-auto px-4 py-5 bg-gray-700 text-3xl font-extrabold text-left min-w-full max-w-full pl-20">
+            <span className="text-white-rose">Team Manager</span>
+          </h1>
+          <button
               onClick={handler}
-              className="flex bg-green-500 text-white px-4 py-2 border rounded-md hover:bg-grary-50 hover:border-green-500 hover:text-gray-800"
-            >
-              Add Teamate
-              <span className="px-1">
+              className= " bg-teal-2 text-white-rose flex items-center h-14 w-14 px-3 right-6 rounded hover:bg-green-1 duration-500 absolute"
+            ><span className="px-1">
                 <BiUserPlus size={23}></BiUserPlus>
-              </span>
+              </span>              
             </button>
-          </div>
         </div>
+
+        <div className=" flex justify-between py-5 mx-auto w-11/12">
+          <div className="left flex gap-3">
+            
+          </div>
+          {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
+        </div>
+
         {/* collapse form */}
-        {visible ? <Form /> : <> </>}
+        {visible ? <Form /> : <></>}
 
         {/* table */}
-        <div className="container mx-auto py-5">
+        <div className="overflow-auto w-11/12 mx-auto px-3 bg-white-rose">
           <Table />
         </div>
+
+        <div className="mx-auto pt-48 px-5 ">
+          <AppFooter />
+        </div>
+
       </main>
     </section>
   )
 }
 
-export default Home
+
+function DeleteComponent({ deleteHandler, cancelHandler }: any) {
+  return (
+
+    <div className="flex gap-3">
+      <p className="py-2 flex font-bold">CONFIRM DELETE:</p>
+      <button onClick={deleteHandler} className="flex bg-red-300 text-white-rose px-2 py-2  rounded hover:bg-red-500 duration-500 ">
+        Yes <span className="px-1 "><BiX color='rgb(255 255 255)' size={25} /></span></button>
+      <button onClick={cancelHandler} className="flex bg-green-300 text-white-rose px-2 py-2  rounded hover:bg-green-500 duration-500">
+        No <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25} /></span></button>
+    </div>
+
+  )
+}

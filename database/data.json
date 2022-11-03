@@ -4,42 +4,42 @@
     "name":"Greg MOREL",
     "avatar":"https://randomuser.me/api/portraits/men/32.jpg",
     "email":"g.morel.apps@gmail.com",
-    "salary":"",
+    "phone":"",
     "date":"2022-10-19",
     "status":"Active"
 },
 {
     "id":2,
     "name":"Katosh T",
-    "avatar":"https://randomuser.me/api/portraits/women/25.jpg",
+    "avatar":"https://thispersondoesnotexist.com/image",
     "email":"theK@gmail.com",
-    "salary":"456",
+    "phone":"456",
     "date":"2022-10-19",
     "status":"Active"
 },
 {
     "id":3,
     "name":"Zozo ELROBOT",
-    "avatar":"https://randomuser.me/api/portraits/men/51.jpg",
+    "avatar":"https://thispersondoesnotexist.com/image",
     "email":"zozonotnono@gmail.com",
-    "salary":"",
+    "phone":"",
     "date":"2022-10-19",
     "status":"Active"
 },
 {
     "id":4,
     "name":"Lu-K STAGNETTE",
-    "avatar":"https://randomuser.me/api/portraits/men/12.jpg",
+    "avatar":"https://thispersondoesnotexist.com/image",
     "email":"Klu@gmail.com",
-    "salary":"456",
+    "phone":"456",
     "date":"2022-10-19",
     "status":"Active"},
 {
     "id":5,
     "name":"HeyLeks MT",
-    "avatar":"https://randomuser.me/api/portraits/men/25.jpg",
+    "avatar":"https://thispersondoesnotexist.com/image",
     "email":"smallbutstrong@gmail.com",
-    "salary":"456",
+    "phone":"456",
     "date":"2022-10-19",
     "status":"Active"
 }
