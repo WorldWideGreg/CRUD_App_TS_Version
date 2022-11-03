@@ -11,9 +11,9 @@ export default function Table() {
 
   return (
     <div className="min-w-max">
-      <table className="min-w-full table-auto text-left ">
+      <table className="min-w-full table-auto text-left">
         <thead>
-          <tr className="bg-white-rose ">
+          <tr className="bg-white-rose border-b border-gray-300">
             <th className="px-15 py-2">
               <span className="text-gray-500 font-extrabold">Name</span>
             </th>

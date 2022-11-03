@@ -45,28 +45,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="bg-transparent ">
-        <div className="flex justify-between pb-10">
-          <div className="mx-auto absolute px-5 pt-3">
+      <main className="bg-transparent min-w-screen min-h-screen ">
+        <div className="flex items-center pb-10">
+          <div className="mx-auto px-3 absolute">
             <Image src={logo} width="50px" height="50px" alt="CRUD" className="logo" />
-          </div>
-
-          <h1 className=" mx-auto py-5 bg-gray-700 text-3xl font-extrabold text-right px-5 min-w-full max-w-full">
+          </div>          
+          <h1 className="mx-auto px-4 py-5 bg-gray-700 text-3xl font-extrabold text-left min-w-full max-w-full pl-20">
             <span className="text-white-rose">Team Manager</span>
           </h1>
+          <button
+              onClick={handler}
+              className= " bg-teal-2 text-white-rose flex items-center h-14 w-14 px-3 right-6 rounded hover:bg-green-1 duration-500 absolute"
+            ><span className="px-1">
+                <BiUserPlus size={23}></BiUserPlus>
+              </span>              
+            </button>
         </div>
 
         <div className=" flex justify-between py-5 mx-auto w-11/12">
           <div className="left flex gap-3">
-            <button
-              onClick={handler}
-              className="flex bg-rose-500 text-white-rose px-4 py-2 rounded hover:bg-rose-600 duration-500"
-            >
-              <span className="px-1">
-                <BiUserPlus size={23}></BiUserPlus>
-              </span>
-              Toggle Form
-            </button>
+            
           </div>
           {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
         </div>
@@ -79,7 +77,7 @@ export default function Home() {
           <Table />
         </div>
 
-        <div className=" mx-auto py-5 px-5">
+        <div className="mx-auto pt-48 px-5 ">
           <AppFooter />
         </div>
 

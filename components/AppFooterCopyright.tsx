@@ -9,7 +9,7 @@ export default function AppFooterCopyright() {
           target="__blank"
           className="hover:underline hover:text-indigo-600 dark:hover:text-indigo-300 ml-1 duration-500"
         >
-          Next.js & Tailwind CSS Portfolio.
+          Next.js / Grégory MOREL Portfolio.
         </a>
       </div>
     </div>

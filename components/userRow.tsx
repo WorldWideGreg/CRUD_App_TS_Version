@@ -35,7 +35,7 @@ export default function UserRow(UserData: UserTypes) {
   }
 
   return (
-    <tr className="bg-white-rose">
+    <tr className="bg-white-rose border-b border-gray-300">
       <td className="pl-0 px-4 py-2 flex flex-row">
         <img src={avatar} alt="" className="avatar h-11 w-11 rounded-full object-cover" />
         <span className="pl-3 py-4 font-medium text-purp-poudre">{firstName} {lastName}</span>

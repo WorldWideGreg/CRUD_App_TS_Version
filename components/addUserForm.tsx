@@ -41,7 +41,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           name="firstName"
           onChange={setFormData}
-          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 border-2 border-rose-poudre bg-white-rose"
           placeholder="Firstname"
           required
         />
@@ -51,7 +51,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           onChange={setFormData}
           name="lastName"
-          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 border-2 border-rose-poudre bg-white-rose"
           placeholder="Lastname"
           required
         />
@@ -61,7 +61,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="email"
           onChange={setFormData}
           name="email"
-          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 border-2 border-rose-poudre bg-white-rose"
           placeholder="E-mail"
           required
         />
@@ -71,7 +71,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="text"
           onChange={setFormData}
           name="phone"
-          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400  border-2 border-rose-poudre bg-white-rose"
           placeholder="Phone Number"
         />
       </div>
@@ -80,22 +80,22 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
           type="date"
           onChange={setFormData}
           name="date"
-          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 bg-rose-poudre"
+          className="w-full px-5 py-3 focus:outline-none rounded placeholder-gray-400 border-2 border-rose-poudre bg-white-rose"
           placeholder="birthday"
           required
         />
       </div>
 
-      <div className="bg-rose-poudre rounded px-10 gap-10 flex items-center">
+      <div className=" border-2 border-rose-poudre bg-white-rose rounded px-10 gap-10 flex items-center">
         <div className="form-check">
           <input
             type="radio"
-            required
+            checked
             onChange={setFormData}
             name="status"
             value="Active"
             id="radioDefault1"
-            className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-green-500 checked:border-gray-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-900 checked:border-gray-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
           />
           <label htmlFor="radioDefault1" className="inline-block text-gray-800">
             Active
@@ -104,19 +104,18 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
         <div className="form-check">
           <input
             type="radio"
-            required
             onChange={setFormData}
             name="status"
             value="Inactive"
             id="radioDefault2"
-            className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-red-500 checked:border-gray-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+            className="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-gray-900 checked:border-gray-500 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
           />
           <label htmlFor="radioDefault2" className="inline-block text-gray-800">
             Inactive
           </label>
         </div>
       </div>
-      <button className="flex justify-center text-md w-1/3 bg-teal-2 text-white px-4 py-2 rounded hover:bg-green-1 duration-500">
+      <button className="flex justify-center text-md w-1/3 bg-teal-2 text-white-rose px-4 py-2 rounded hover:bg-green-1 duration-500">
         Submit{" "}
         <span className="px-1">
           {" "}

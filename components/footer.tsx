@@ -19,8 +19,8 @@ const socialLinks = [
 export default function AppFooter() {
 	return (
 		<div className="mx-auto">
-			<div className="pt-20 sm:pt-30 pb-8 mt-20 border-t mx-auto border-slate-500">
-				<p className='text-xs flex justify-center mb-5'>This CRUD application is using Next.js, Tailwind.CSS, Typescript, MongoDB and Github</p>				
+			<div className="mx-auto">
+				<p className='text-xs text-center flex justify-center mb-5'>This CRUD application is using Next.js, Tailwind.CSS, Typescript, MongoDB and Github</p>				
 				<div className="font-general-regular flex flex-col justify-center items-center mb-5">
 					<p className="text-xl text-primary-dark mb-5">
 						Suivez moi / Follow me
