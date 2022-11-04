@@ -13,24 +13,24 @@ export default function Table() {
     <div className="min-w-max">
       <table className="min-w-full table-auto text-left">
         <thead>
-          <tr className="bg-white-rose border-b border-gray-300">
-            <th className="px-15 py-2">
-              <span className="text-gray-500 font-extrabold">Name</span>
+          <tr className="bg-white-rose border-b border-gray-300 dark:bg-green-upper dark:border-gray-700">
+            <th className="pl-3 py-2">
+              <span className="text-gray-500 dark:text-gray-300 font-extrabold px-2">Name</span>
             </th>
-            <th className="px-15 py-2">
-              <span className="text-gray-500 font-extrabold">E-mail</span>
+            <th className=" ">
+              <span className="text-gray-500 dark:text-gray-300 font-extrabold">E-mail</span>
             </th>
-            <th className="px-15 py-2">
-              <span className="text-gray-500 font-extrabold">Phone Number</span>
+            <th className=" ">
+              <span className="text-gray-500 dark:text-gray-300 font-extrabold">Phone Number</span>
             </th>
-            <th className="px-15 py-2">
-              <span className="text-gray-500 font-extrabold">Birthday</span>
+            <th className=" ">
+              <span className="text-gray-500 dark:text-gray-300 font-extrabold">Birthday</span>
             </th>
-            <th className="px-15 py-2">
-              <span className="text-gray-500 font-extrabold">Status</span>
+            <th className="">
+              <span className="text-gray-500 dark:text-gray-300 font-extrabold">Status</span>
             </th>
-            <th className="px-15 py-2">
-              <span className="text-gray-500 font-extrabold">Actions</span>
+            <th className="">
+              <span className="text-gray-500 dark:text-gray-300 font-extrabold">Actions</span>
             </th>
           </tr>
         </thead>

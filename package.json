@@ -11,6 +11,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "dotenv": "^16.0.3",
+    "framer-motion": "^7.6.4",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -18,7 +19,8 @@
     "react-pixelart-face-card": "^1.1.7",
     "react-query": "^3.39.2",
     "react-redux": "^8.0.4",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "tailwindcss-ripple": "^0.7.1"
   },
   "devDependencies": {
     "@types/node": "^18.11.3",
