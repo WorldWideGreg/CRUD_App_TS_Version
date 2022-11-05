@@ -6,6 +6,8 @@ import { dataForForms } from "../pages/utils"
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { getUser, getUsers, updateUser } from "../lib/fetcher";
 import { motion } from "framer-motion";
+import flip from "../components/ModalAnimations";
+import {RiCloseCircleLine} from 'react-icons/ri'
 
 export default function UpdateUserForm({ formId, formData, setFormData }: dataForForms) {
 
@@ -42,16 +44,21 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 z-30 transition-all duration-500 visible"
-    >
-      {/* Modal Backdrop */}
-      <div className="bg-filter bg-black bg-opacity-50 fixed inset-0 w-full h-full z-20"></div>
-      {/* Modal Content */}
+    className="backdrop bg-filter bg-black bg-opacity-50 fixed inset-0 w-full h-full z-20"          
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+>
+<motion.div
+        className="modal fixed inset-0 z-30 transition-all duration-500 visible"
+        variants={flip}
+        initial="hidden"
+        animate="visible"
+        exit="exit">
+      
       <main className="flex justify-center items-center h-screen w-screen modal-wrapper">
         <div className="bg-white-rose dark:bg-white-green rounded z-30">
+        <a href="/" className="flex flex-row-reverse"><button><RiCloseCircleLine size={22}></RiCloseCircleLine></button></a>
         
           <div className="border-b text-center pt-3 pb-3 border-gray-400">Modify Teamate</div>
           
@@ -155,5 +162,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
         </div>
       </main>
     </motion.div>
+    </motion.div>
+
   );
 }

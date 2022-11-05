@@ -10,9 +10,13 @@ import { useQueryClient } from "react-query";
 import AppFooter from "../components/footer";
 import Image from "next/image";
 import logo from "../public/images/CRUD.png"
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
+import Backdrop from "../components/ModalAnimations";
+
 
 export default function Home() {
+
+  const URL = "/"
 
   const visible = useSelector((state: any) => state.app.client.toggleForm)
   const deleteId = useSelector((state: any) => state.app.client.deleteId)
@@ -51,8 +55,9 @@ export default function Home() {
 
       <main className="bg-transparent min-w-screen min-h-screen ">
         <div className="flex items-center pb-10">
-          <div className="mx-auto px-3 absolute">
-            <Image src={logo} width="50px" height="50px" alt="CRUD" className="logo" />
+          <div className="mx-auto px-3 absolute"> <a href={URL}>
+            <Image src={logo} width="50px" height="50px" alt="CRUD" className="logo" /></a>
+
           </div>
           <h1 className="TopCover mx-auto px-4 py-5 lg:text-3xl md:text-xl font-extrabold text-left min-w-full max-w-full pl-20">
             <span className="text-white-rose">Team Manager</span>
@@ -68,14 +73,12 @@ export default function Home() {
 
         </div>
 
-        <div >          
+        <div >
           {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
         </div>
 
-        {/* collapse form */}
         {visible ? <Form /> : <></>}
 
-        {/* table */}
         <div className="overflow-auto w-11/12 mx-auto bg-white-rose">
           <Table />
         </div>
@@ -104,13 +107,13 @@ function DeleteComponent({ deleteHandler, cancelHandler }: any) {
       <main className="flex flex-col items-center justify-center h-full w-full">
         <div className="modal-wrapper flex items-center z-30">
           <div className="modal max-w-md xl:max-w-xl lg:max-w-xl md:max-w-xl bg-light-sable dark:bg-sable max-h-screen shadow-lg flex-row rounded relative">
-              <p className="py-2 px-4 text-center font-bold">CONFIRM DELETE:</p>
+            <p className="py-2 px-4 text-center font-bold">CONFIRM DELETE:</p>
             <div className="modal-header flex justify-between gap-6 p-5 border-ternary-light dark:border-ternary-dark">
-                <button onClick={deleteHandler} className="flex bg-green-300 text-white-rose px-2 py-2  rounded hover:bg-green-500 duration-500">
-                  Yes <span className="px-1 "><BiX color='rgb(255 255 255)' size={25} /></span></button>
-                <button onClick={cancelHandler}className="flex bg-red-300 text-white-rose px-2 py-2  rounded hover:bg-red-500 duration-500 " >
-                  No <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25} /></span></button>
-            </div>            
+              <button onClick={deleteHandler} className="flex bg-green-300 text-white-rose px-2 py-2  rounded hover:bg-green-500 duration-500">
+                Yes <span className="px-1 "><BiX color='rgb(255 255 255)' size={25} /></span></button>
+              <button onClick={cancelHandler} className="flex bg-red-300 text-white-rose px-2 py-2  rounded hover:bg-red-500 duration-500 " >
+                No <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25} /></span></button>
+            </div>
           </div>
         </div>
       </main>
