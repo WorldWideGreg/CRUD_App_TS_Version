@@ -1,5 +1,5 @@
-import {FiGithub,FiLinkedin} from 'react-icons/fi';
-import AppFooterCopyright from '../components/AppFooterCopyright';
+import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import AppFooterCopyright from './AppFooterCopyright';
 
 const socialLinks = [
 	{
@@ -12,7 +12,7 @@ const socialLinks = [
 		icon: <FiLinkedin />,
 		url: 'https://www.linkedin.com/in/gregory-morel/',
 	}
-	
+
 ];
 
 export default function AppFooter() {
@@ -21,7 +21,7 @@ export default function AppFooter() {
 			<div className="mx-auto">
 				<p className='text-md text-center flex justify-center mb-5 light:text-gray-900 dark:text-gray-400'>
 					This CRUD application is using Next.js, Tailwind.CSS, Typescript, MongoDB and Github
-				</p>				
+				</p>
 				<div className="font-general-regular flex flex-col justify-center items-center mb-5">
 					<p className="text-3xl light:text-gray-900 dark:text-white-rose mb-5">
 						Suivez moi / Follow me

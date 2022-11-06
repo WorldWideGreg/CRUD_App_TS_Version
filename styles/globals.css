@@ -17,7 +17,7 @@
 
 @font-face {
   font-family: 'OpenSans' ;
-  src: url(../public/fonts/OpenSans-Regular.ttf);
+  src: url("../public/fonts/OpenSans-Regular.ttf");
 }
 
 *>*{
@@ -33,6 +33,12 @@ a {
 
 h1{
   font-family: 'Cinzel', sans-serif;
+}
+.nature{
+  background-image: "./public/images/nature.png";
+}
+.sky{
+  background-image: "./public/images/sky.png";
 }
 
 .footerFont{

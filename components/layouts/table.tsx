@@ -1,7 +1,7 @@
 import UserRow from "./userRow";
-import { getUsers } from "../lib/fetcher"
+import { getUsers } from "../../lib/fetcher"
 import { useQuery } from "react-query";
-import { UserTypes } from "../pages/utils";
+import { UserTypes } from "../../pages/utils";
 
 export default function Table() {
 

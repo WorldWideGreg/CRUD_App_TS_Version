@@ -1,7 +1,7 @@
-import { UserTypes } from "../pages/utils";
+import { UserTypes } from "../../pages/utils";
 import { BiEdit, BiTrashAlt } from "react-icons/bi";
 import { useSelector, useDispatch } from "react-redux";
-import { toggleChangeAction, updateAction, deleteAction } from '../redux/reducer'
+import { toggleChangeAction, updateAction, deleteAction } from '../../redux/reducer'
 
 
 export default function UserRow(UserData: UserTypes) {

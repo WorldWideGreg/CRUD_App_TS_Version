@@ -1,18 +1,17 @@
 import Head from "next/head";
 import React from "react";
 import { BiCheck, BiUserPlus, BiX } from "react-icons/bi";
-import Table from "../components/table";
-import Form from "../components/form";
+import Table from "../components/layouts/table";
+import Form from "../components/Forms/form";
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleChangeAction, deleteAction } from "../redux/reducer";
 import { deleteUser, getUsers } from '../lib/fetcher'
 import { useQueryClient } from "react-query";
-import AppFooter from "../components/footer";
-import AppHeader from "../components/appHeader";
+import AppFooter from "../components/layouts/footer";
 import Image from "next/image";
 import logo from "../public/images/logo-light.png"
 import { motion } from "framer-motion";
-
+import Header from "../components/themeSwitch/ButtonTheme";
 
 export default function Home() {
 
@@ -56,7 +55,7 @@ export default function Home() {
         transition={{ ease: "easeInOut", duration: 0.5, delay: 0.1 }}
         className="">
         <div className="background bg-lightBgPage dark:bg-darkBgPage">
-          <main className=" min-w-screen min-h-screen">
+          <main className="min-w-screen min-h-screen">
             <div className="flex items-center pb-10">
               <div className="mx-auto px-3 absolute"> <a href={URL}>
                 <Image src={logo} width="50px" height="50px" alt="Logo" className="logo" /></a>
@@ -73,8 +72,8 @@ export default function Home() {
                 </span>
               </button>
               {/* Theme Switcher */}
-              <div className="themeSwitch h-11 w-11 right-6 rounded-full flex items-center pl-2 absolute duration-300">
-                <AppHeader />
+              <div className="right-5 bg-darkBgPage dark:bg-lightBgPage h-6 w-12 rounded-md flex items-center px-1 absolute duration-500">
+                <Header />
               </div>
             </div>
 
