@@ -6,7 +6,7 @@ import { dataForForms } from "../pages/utils"
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { getUser, getUsers, updateUser } from "../lib/fetcher";
 import { motion } from "framer-motion";
-import flip from "../components/ModalAnimations";
+import {flip, dropIn, newspaper,gifYouUp} from "./ModalAnimations";
 import {RiCloseCircleLine} from 'react-icons/ri'
 
 export default function UpdateUserForm({ formId, formData, setFormData }: dataForForms) {
@@ -51,7 +51,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
 >
 <motion.div
         className="modal fixed inset-0 z-30 transition-all duration-500 visible"
-        variants={flip}
+        variants={dropIn}
         initial="hidden"
         animate="visible"
         exit="exit">
@@ -60,7 +60,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
         <div className="bg-white-rose dark:bg-white-green rounded z-30">
         <a href="/" className="flex flex-row-reverse"><button><RiCloseCircleLine size={22}></RiCloseCircleLine></button></a>
         
-          <div className="border-b text-center pt-3 pb-3 border-gray-400">Modify Teamate</div>
+          <div className="border-b text-center pb-3 border-gray-400">Modify Teamate</div>
           
             <form className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-5/6 gap-5 pt-5" onSubmit={handleSubmit}>
             <div className="input-type">

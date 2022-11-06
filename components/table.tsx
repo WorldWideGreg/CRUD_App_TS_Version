@@ -10,7 +10,7 @@ export default function Table() {
   if (isError) return <div><>Error:{error}</></div>
 
   return (
-    <div className="min-w-max">
+    <div className="min-w-max userTable">
       <table className="min-w-full table-auto text-left">
         <thead>
           <tr className="bg-white-rose border-b border-gray-300 dark:bg-green-upper dark:border-gray-700">

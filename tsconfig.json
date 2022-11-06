@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "database/connect.ts",
-    "components/reusable/buttonEffects/RippleEffect.js"
+    "components/reusable/buttonEffects/RippleEffect.js",
+    "components/appHeader.tsx"
   ],
   "exclude": ["node_modules"]
 }
