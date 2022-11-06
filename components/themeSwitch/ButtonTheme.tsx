@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 const ToggleCircle = styled(motion.div)`
-    width: 20px;
+    width: 30px;
     height: 20px;
     background-color: white;
     border-radius: 40px;
@@ -15,7 +15,7 @@ const ToggleCircle = styled(motion.div)`
 const Toggle = () => {
     const [toggleDirection, setToggleDirection] = useState(0)
     const toggleOn = () => {
-        setToggleDirection(toggleDirection === 0 ? 20 : 0)
+        setToggleDirection(toggleDirection === 0 ? 4 : 0)
     }
 
 
@@ -27,8 +27,8 @@ const Toggle = () => {
                     }}
                     transition={{
                         type: "spring",
-                        stiffness: 700,
-                        damping: 30
+                        stiffness: 500,
+                        damping: 20
                     }}
                     style={{
                         background: toggleDirection ? "#FF7777" : "#FF9F29"

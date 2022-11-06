@@ -72,7 +72,7 @@ export default function Home() {
                 </span>
               </button>
               {/* Theme Switcher */}
-              <div className="right-5 bg-darkBgPage dark:bg-lightBgPage h-6 w-12 rounded-md flex items-center px-1 absolute duration-500">
+              <div className="right-5 bg-darkBgPage dark:bg-lightBgPage h-6 w-10 rounded-md flex items-center pl-1 absolute duration-500">
                 <Header />
               </div>
             </div>

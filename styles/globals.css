@@ -20,8 +20,7 @@
   src: url("../public/fonts/OpenSans-Regular.ttf");
 }
 
-*>*{
-}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -42,7 +41,7 @@ h1{
 }
 
 .footerFont{
-  font-family: 'PoorStory';
+  font-family: 'Montserrat';
 }
 
 .userTable{

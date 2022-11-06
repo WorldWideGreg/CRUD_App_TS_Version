@@ -19,11 +19,11 @@ export default function AppFooter() {
 	return (
 		<div className="mx-auto">
 			<div className="mx-auto">
-				<p className='text-md text-center flex justify-center mb-5 light:text-gray-900 dark:text-gray-400'>
+				<p className='text-xs text-center flex justify-center mb-5 light:text-gray-900 dark:text-gray-400'>
 					This CRUD application is using Next.js, Tailwind.CSS, Typescript, MongoDB and Github
 				</p>
 				<div className="font-general-regular flex flex-col justify-center items-center mb-5">
-					<p className="text-3xl light:text-gray-900 dark:text-white-rose mb-5">
+					<p className="text-2xl light:text-gray-900 dark:text-white-rose mb-5">
 						Suivez moi / Follow me
 					</p>
 					<ul className="flex gap-4 sm:gap-8">

@@ -2,7 +2,7 @@ export default function AppFooterCopyright() {
   return (
     <div className="font-general-regular flex justify-center items-center text-center">
       
-      <div className="text-lg light:text-gray-900 dark:text-gray-400">
+      <div className="text-md light:text-gray-900 dark:text-gray-400">
         &copy; {new Date().getFullYear()}
         <a
           href="https://myportfoliov2-beta.vercel.app/"
