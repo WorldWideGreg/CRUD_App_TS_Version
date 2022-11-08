@@ -19,42 +19,41 @@ const Toggle = () => {
     }
 
 
-    return (        
-                <ToggleCircle
-                    onTap={toggleOn}
-                    animate={{
-                        x: toggleDirection
-                    }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 500,
-                        damping: 20
-                    }}
-                    style={{
-                        background: toggleDirection ? "#FF7777" : "#FF9F29"
-                    }}
-                />
-           
+    return (
+        <ToggleCircle
+            onTap={toggleOn}
+            animate={{
+                x: toggleDirection
+            }}
+            transition={{
+                type: "spring",
+                stiffness: 500,
+                damping: 20
+            }}
+            style={{
+                background: toggleDirection ? "#FF7777" : "#FF9F29"
+            }}
+        />
+
     )
 }
 
-
 export default function Header() {
-    const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } =
-        useContext(MyThemeContext);
+        const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } =
+            useContext(MyThemeContext);
 
 
-    function toggleThemeHandler(): void {
-        themeCtx.toggleThemeHandler();
+        function toggleThemeHandler(): void {
+            themeCtx.toggleThemeHandler();
+        }
+        return (
+            <div
+                className=""
+                onClick={toggleThemeHandler}
+            >
+                <Toggle />
+            </div>
+
+        );
     }
-    return (
-        <div
-            className=""
-            onClick={toggleThemeHandler}
-        >
-            <Toggle />
-        </div>
-
-    );
-}
 

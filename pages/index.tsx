@@ -71,10 +71,10 @@ export default function Home() {
                   <BiUserPlus size={34}></BiUserPlus>
                 </span>
               </button>
-              {/* Theme Switcher */}
+              {/* Theme Switcher 
               <div className="right-5 bg-darkBgPage dark:bg-lightBgPage h-6 w-10 rounded-md flex items-center pl-1 absolute duration-500">
                 <Header />
-              </div>
+              </div>*/}
             </div>
 
             <div >
