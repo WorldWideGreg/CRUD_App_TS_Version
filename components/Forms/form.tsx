@@ -14,7 +14,6 @@ export default function Form() {
 
   const [formData, setFormData] = useReducer(formReducer, {});
 
-
   const formId = useSelector((state: any) => state.app.client.formId);
 
   return (

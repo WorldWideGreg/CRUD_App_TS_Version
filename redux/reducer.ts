@@ -16,7 +16,8 @@ export const ReducerSlice = createSlice({
         },
         deleteAction: (state, action) => {
         state.client.deleteId = action.payload
-        }    
+        }
+        
     }
 })
 

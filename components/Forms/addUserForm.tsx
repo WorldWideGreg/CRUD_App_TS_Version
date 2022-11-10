@@ -7,29 +7,22 @@ import { addUser, getUsers } from "../../lib/fetcher"
 import { dataForForms } from "../../pages/utils"
 import { motion } from 'framer-motion'
 import { gifYouUp } from "../modals/ModalAnimations";
-import { useState} from 'react'
-
+import { toggleChangeAction } from "../../redux/reducer";
+import { useDispatch } from "react-redux";
 
 export default function AddUserForm({ formData, setFormData }: dataForForms) {
 
-  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch()
+
+  const OnClose = () => {
+    dispatch(toggleChangeAction())
+  }
 
   const queryClient = useQueryClient()
 
   const addMutation = useMutation(addUser, {
     onSuccess: () => queryClient.prefetchQuery('users', getUsers)
   })
-
-  const onClose = () => {
-    let MyModal = document.getElementsByClassName("backdrop")[0]
-    if (!showModal) {
-      MyModal.classList.add("hidden");
-      setShowModal(true);
-    } else {
-      MyModal.classList.remove("hidden");
-      setShowModal(false);
-    }
-  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -61,12 +54,12 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
         exit="exit"
       >
         <main
-          onClick={onClose}
+          onClick={OnClose}
           className="flex justify-center items-center h-screen w-screen modal-wrapper">
           <div
             onClick={(e) => e.stopPropagation()}
             className="bg-white-rose dark:bg-white-green rounded z-30">
-            <div className="flex flex-row-reverse"><button onClick={onClose}><RiCloseCircleLine size={22}></RiCloseCircleLine></button></div>
+            <div className="flex flex-row-reverse"><button onClick={OnClose}><RiCloseCircleLine size={22}></RiCloseCircleLine></button></div>
             <div className="border-b text-center pb-3 border-gray-400">Add Teamate </div>
             <form className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-5/6 gap-5 pt-5" onSubmit={handleSubmit}>
               <div className="input-type">
