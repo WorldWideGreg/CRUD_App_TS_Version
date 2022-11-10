@@ -1,5 +1,5 @@
 import { BiErrorAlt } from "react-icons/bi";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import { dropIn } from "./ModalAnimations";
 import { RiCloseCircleLine } from 'react-icons/ri'
 
@@ -29,7 +29,6 @@ function Error({message}: Props) {
             <BiErrorAlt size={25} color={"red"}></BiErrorAlt>
               {message}
             </div>
-
           </div>
         </main>
       </motion.div>

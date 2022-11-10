@@ -14,7 +14,6 @@ import { motion } from "framer-motion";
 import Header from "../components/themeSwitch/ButtonTheme";
 
 export default function Home() {
-
   const URL = "/"
 
   const visible = useSelector((state: any) => state.app.client.toggleForm)
@@ -39,6 +38,7 @@ export default function Home() {
     console.log('Cancel')
     await dispatch(deleteAction(null))
   }
+
 
 
   return (
@@ -80,8 +80,9 @@ export default function Home() {
             <div >
               {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
             </div>
-
-            {visible ? <Form /> : <></>}
+            
+              {visible ? <Form /> : <></>}
+           
 
             <div className="overflow-auto w-11/12 mx-auto bg-white-rose">
               <Table />

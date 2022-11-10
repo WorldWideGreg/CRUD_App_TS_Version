@@ -8,8 +8,12 @@ import { getUser, getUsers, updateUser } from "../../lib/fetcher";
 import { motion } from "framer-motion";
 import { dropIn } from "../modals/ModalAnimations";
 import { RiCloseCircleLine } from 'react-icons/ri'
+import { useState} from "react";
 
 export default function UpdateUserForm({ formId, formData, setFormData }: dataForForms) {
+
+  const [showModal, setShowModal] = useState(false);
+
 
   const queryClient = useQueryClient();
 
@@ -41,6 +45,16 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
   if (UpdateMutation.isError) return <Error message={"Woops a problem occured!"} />
   if (UpdateMutation.isSuccess) return <Success message={"Teamate Updated!"} />
 
+  const onClose = () => {
+    let MyModal = document.getElementsByClassName("backdrop")[0]
+    if (!showModal) {
+      MyModal.classList.add("hidden");
+      setShowModal(true);
+    } else {
+      MyModal.classList.remove("hidden");
+      setShowModal(false);
+    }
+  }
 
   return (
     <motion.div
@@ -56,9 +70,13 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
         animate="visible"
         exit="exit">
 
-        <main className="flex justify-center items-center h-screen w-screen modal-wrapper">
-          <div className="bg-white-rose dark:bg-white-green rounded z-30">
-            <a href="/" className="flex flex-row-reverse"><button><RiCloseCircleLine size={22}></RiCloseCircleLine></button></a>
+        <main
+          onClick={onClose}
+          className="flex justify-center items-center h-screen w-screen modal-wrapper">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white-rose dark:bg-white-green rounded z-30">
+            <div className="flex flex-row-reverse"><button onClick={onClose}><RiCloseCircleLine size={22}></RiCloseCircleLine></button></div>
 
             <div className="border-b text-center pb-3 border-gray-400">Modify Teamate</div>
 

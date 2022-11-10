@@ -1,16 +1,18 @@
 import { BiPlusCircle } from "react-icons/bi";
 import { RiCloseCircleLine } from "react-icons/ri";
 import Success from "../modals/success";
-import Error from "../modals/error";
 import { UserTypes } from "../../pages/utils";
 import { useQueryClient, useMutation } from 'react-query'
 import { addUser, getUsers } from "../../lib/fetcher"
 import { dataForForms } from "../../pages/utils"
 import { motion } from 'framer-motion'
-import { flip, dropIn, newspaper, gifYouUp } from "../modals/ModalAnimations";
+import { gifYouUp } from "../modals/ModalAnimations";
+import { useState} from 'react'
 
 
 export default function AddUserForm({ formData, setFormData }: dataForForms) {
+
+  const [showModal, setShowModal] = useState(false);
 
   const queryClient = useQueryClient()
 
@@ -18,6 +20,16 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
     onSuccess: () => queryClient.prefetchQuery('users', getUsers)
   })
 
+  const onClose = () => {
+    let MyModal = document.getElementsByClassName("backdrop")[0]
+    if (!showModal) {
+      MyModal.classList.add("hidden");
+      setShowModal(true);
+    } else {
+      MyModal.classList.remove("hidden");
+      setShowModal(false);
+    }
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -34,15 +46,12 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
   };
 
   if (addMutation.isLoading) return <div> Loading... </div>
-  if (addMutation.isError) return <Error message={"Woops a problem occured!"} />
+  if (addMutation.isError) return <Success message={"Woops a problem occured!"} />
   if (addMutation.isSuccess) return <Success message={"Welcome new teamate"} />
 
   return (
     <motion.div
       className="backdrop bg-filter bg-black bg-opacity-50 fixed inset-0 w-full h-full z-20"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
     >
       <motion.div
         className="modal fixed inset-0 z-30 transition-all duration-500 visible"
@@ -51,9 +60,13 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
         animate="visible"
         exit="exit"
       >
-        <main className="flex justify-center items-center h-screen w-screen modal-wrapper">
-          <div className="bg-white-rose dark:bg-white-green rounded z-30">
-            <a href="/" className="flex flex-row-reverse"><button><RiCloseCircleLine size={22}></RiCloseCircleLine></button></a>
+        <main
+          onClick={onClose}
+          className="flex justify-center items-center h-screen w-screen modal-wrapper">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white-rose dark:bg-white-green rounded z-30">
+            <div className="flex flex-row-reverse"><button onClick={onClose}><RiCloseCircleLine size={22}></RiCloseCircleLine></button></div>
             <div className="border-b text-center pb-3 border-gray-400">Add Teamate </div>
             <form className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-5/6 gap-5 pt-5" onSubmit={handleSubmit}>
               <div className="input-type">
