@@ -70,10 +70,10 @@ export default function Home() {
                   <BiUserPlus size={34}></BiUserPlus>
                 </span>
               </button>
-              {/* Theme Switcher 
+              {/* Theme Switcher */}
               <div className="right-5 bg-darkBgPage dark:bg-lightBgPage h-6 w-10 rounded-md flex items-center pl-1 absolute duration-500">
                 <Header />
-              </div>*/}
+              </div>
             </div>
 
             <div >
@@ -112,7 +112,7 @@ function DeleteComponent({ deleteHandler, cancelHandler }: any) {
       {/* Modal Content */}
       <main className="flex flex-col items-center justify-center h-full w-full">
         <div className="modal-wrapper flex items-center z-30">
-          <div className="modal max-w-md xl:max-w-xl lg:max-w-xl md:max-w-xl bg-light-sable dark:bg-sable max-h-screen shadow-lg flex-row rounded relative">
+          <div className="modal max-w-md xl:max-w-xl lg:max-w-xl md:max-w-xl bg-white-rose dark:bg-white-green max-h-screen shadow-lg flex-row rounded relative">
             <p className="py-2 px-4 text-center font-bold">CONFIRM DELETE:</p>
             <div className="modal-header flex justify-between gap-6 p-5 border-ternary-light dark:border-ternary-dark">
               <button onClick={deleteHandler} className="flex bg-green-300 text-white-rose px-2 py-2  rounded hover:bg-green-500 duration-500">

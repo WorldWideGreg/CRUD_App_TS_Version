@@ -2,16 +2,24 @@ import { motion } from "framer-motion";
 import { useEffect } from 'react'
 import { dropIn } from './ModalAnimations'
 import { BiCheck } from 'react-icons/bi'
+import { toggleChangeAction } from "../../redux/reducer";
+import { useDispatch } from "react-redux";
 
 type Props = {
   message: string;
 }
 export default function Success({ message }: Props) {
 
+  const dispatch = useDispatch()
+
+  const OnClose = () => {
+    dispatch(toggleChangeAction())
+  }
+
   const SuccessRmv = useEffect(() => {
     let myDiv = document.querySelector(".success");
     if (myDiv) {
-      setTimeout(() => myDiv?.classList.add("hidden")
+      setTimeout(OnClose
         , 2000)
     };
   })
