@@ -1,8 +1,10 @@
-import { createContext, ReactElement, useEffect, useState } from "react";
+import { createContext, ReactElement, useEffect } from "react";
+import React, { useState } from 'react';
+
 
 const MyThemeContext = createContext({
   isDarkTheme: true,
-  toggleThemeHandler: () => {},
+  toggleThemeHandler: () => { },
 });
 
 interface ThemePropsInterface {
@@ -22,13 +24,13 @@ export function MyThemeContextProvider(
   function initialThemeHandler(): void {
     if (isLocalStorageEmpty()) {
       localStorage.setItem("isDarkTheme", `true`);
-      document!.querySelector("body")!.classList.add("dark");
+      document?.querySelector("body")?.classList.add("dark");
       setIsDarkTheme(true);
     } else {
       const isDarkTheme: boolean = JSON.parse(
         localStorage.getItem("isDarkTheme")!
       );
-      isDarkTheme && document!.querySelector("body")!.classList.add("dark");
+      isDarkTheme && document?.querySelector("body")?.classList.add("dark");
       setIsDarkTheme(() => {
         return isDarkTheme;
       });
@@ -42,10 +44,11 @@ export function MyThemeContextProvider(
     setIsDarkTheme(!isDarkTheme);
     toggleDarkClassToBody();
     setValueToLocalStorage();
+
   }
 
   function toggleDarkClassToBody(): void {
-    document!.querySelector("body")!.classList.toggle("dark");
+    document?.querySelector("body")?.classList.toggle("dark");
   }
 
   function setValueToLocalStorage(): void {
@@ -58,5 +61,6 @@ export function MyThemeContextProvider(
     </MyThemeContext.Provider>
   );
 }
+
 
 export default MyThemeContext;

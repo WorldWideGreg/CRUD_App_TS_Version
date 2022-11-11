@@ -35,18 +35,18 @@ export default function UserRow(UserData: UserTypes) {
   }
 
   return (
-    <tr className="odd:bg-rose-pale even:bg-white-rose dark:odd:bg-green-lowest-2 dark:even:bg-green-lowest userRow">
+    <tr className="odd:bg-rose-pale even:bg-white-rose dark:odd:bg-gray-900 dark:even:bg-gray-800 userRow">
       <td className="pl-4 px-4 py-2 flex flex-row">
         <img src={avatar} alt="" className="avatar h-11 w-11 rounded-full object-cover" />
-        <span className="pl-3 py-4 font-medium text-purp-poudre">{firstName} {lastName}</span>
+        <span className="pl-3 py-4 font-medium text-purp-poudre dark:text-white-rose">{firstName} {lastName}</span>
       </td>
-      <td className="px-4 py-4 pl-0 font-medium text-purp-poudre">
+      <td className="px-4 py-4 pl-0 font-medium text-purp-poudre dark:text-white-rose">
         <span>{email}</span>
       </td>
-      <td className="px-4 py-4 pl-0 font-medium text-purp-poudre">
+      <td className="px-4 py-4 pl-0 font-medium text-purp-poudre dark:text-white-rose">
         <span>{phone}</span>
       </td>
-      <td className="px-4 py-4 pl-0 font-medium text-purp-poudre">
+      <td className="px-4 py-4 pl-0 font-medium text-purp-poudre dark:text-white-rose">
         <span>{date}</span>
       </td>
       <td className="font-medium text-purp-poudre">

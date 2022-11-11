@@ -11,7 +11,7 @@ import AppFooter from "../components/layouts/footer";
 import Image from "next/image";
 import logo from "../public/images/logo-light.png"
 import { motion } from "framer-motion";
-import Header from "../components/themeSwitch/ButtonTheme";
+import ThemeButton from "../components/themeSwitch/ButtonTheme";
 
 export default function Home() {
   const URL = "/"
@@ -39,7 +39,6 @@ export default function Home() {
     await dispatch(deleteAction(null))
   }
 
-
   return (
     <section>
       <Head>
@@ -53,35 +52,34 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ ease: "easeInOut", duration: 0.5, delay: 0.1 }}
         className="">
-        <div className="background bg-lightBgPage dark:bg-darkBgPage">
+        <div className="background bg-lightBgPage dark:bg-darkBgPage2">
           <main className="min-w-screen min-h-screen">
             <div className="flex items-center pb-10">
               <div className="mx-auto px-3 absolute"> <a href={URL}>
                 <Image src={logo} width="50px" height="50px" alt="Logo" className="logo" /></a>
               </div>
-              <h1 className="bg-headerLight dark:bg-headerDark mx-auto px-4 py-5 lg:text-3xl md:text-xl text-left min-w-full max-w-full pl-20">
+              <h1 className="bg-headerLight dark:bg-headerDark mx-auto px-4 py-5 lg:text-3xl md:text-xl text-left min-w-full max-w-full pl-20 shadow-md shadow-slate-900">
                 <span className="text-white-rose">Team Manager</span>
               </h1>
 
               <button
                 onClick={handler}
-                className="tooltiptext rippleBlue bg-blue-02 dark:bg-orange-mid text-white-rose flex items-center h-10 w-10 pl-1 right-20 rounded absolute">
+                className="bg-blue-01 dark:bg-gray-600 hover:bg-blue-02 hover:dark:bg-gray-700 text-white-rose flex items-center h-10 w-10 pl-1 right-20 rounded absolute">
                 <span className="tooltip"> <span className="tooltiptext">Add Member</span>
                   <BiUserPlus size={34}></BiUserPlus>
                 </span>
               </button>
-              {/* Theme Switcher */}
-              <div className="right-5 bg-darkBgPage dark:bg-lightBgPage h-6 w-10 rounded-md flex items-center pl-1 absolute duration-500">
-                <Header />
-              </div>
+
+              <ThemeButton />
+
             </div>
 
             <div >
               {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
             </div>
-            
-              {visible ? <Form /> : <></>}
-           
+
+            {visible ? <Form /> : <></>}
+
 
             <div className="overflow-auto w-11/12 mx-auto bg-white-rose">
               <Table />
@@ -112,13 +110,13 @@ function DeleteComponent({ deleteHandler, cancelHandler }: any) {
       {/* Modal Content */}
       <main className="flex flex-col items-center justify-center h-full w-full">
         <div className="modal-wrapper flex items-center z-30">
-          <div className="modal max-w-md xl:max-w-xl lg:max-w-xl md:max-w-xl bg-white-rose dark:bg-white-green max-h-screen shadow-lg flex-row rounded relative">
+          <div className="modal max-w-md xl:max-w-xl lg:max-w-xl md:max-w-xl bg-white-rose text-grey-02 dark:bg-grey-07 dark:text-white-rose max-h-screen shadow-lg flex-row rounded relative">
             <p className="py-2 px-4 text-center font-bold">CONFIRM DELETE:</p>
             <div className="modal-header flex justify-between gap-6 p-5 border-ternary-light dark:border-ternary-dark">
-              <button onClick={deleteHandler} className="flex bg-green-300 text-white-rose px-2 py-2  rounded hover:bg-green-500 duration-500">
-                Yes <span className="px-1 "><BiX color='rgb(255 255 255)' size={25} /></span></button>
-              <button onClick={cancelHandler} className="flex bg-red-300 text-white-rose px-2 py-2  rounded hover:bg-red-500 duration-500 " >
-                No <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25} /></span></button>
+              <button onClick={deleteHandler} className="flex bg-green-300 dark:bg-green-500 text-white-rose px-2 py-2 rounded hover:bg-green-500 dark:hover:bg-green-300 duration-500">
+                <span className="px-1 "><BiX color='rgb(255 255 255)' size={25} /></span>Yes</button>
+              <button onClick={cancelHandler} className="flex bg-red-300 dark:bg-red-500 text-white-rose px-2 py-2  rounded hover:bg-red-500 dark:hover:bg-red-300 duration-500 " >
+                <span className="px-1 "><BiCheck color='rgb(255 255 255)' size={25} /></span>No</button>
             </div>
           </div>
         </div>

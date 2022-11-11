@@ -1,59 +1,32 @@
 import { useContext } from "react";
 import MyThemeContext from "../../store/ThemeProvider";
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import { FiSun, FiMoon } from "react-icons/fi";
+
+let Toggler = false;
+
+export default function ThemeButton() {
 
 
-const ToggleCircle = styled(motion.div)`
-    width: 30px;
-    height: 20px;
-    background-color: white;
-    border-radius: 40px;
-`;
+    const themeCtx: { isDarkTheme?: boolean; toggleThemeHandler: () => void } =
+        useContext(MyThemeContext);
 
-const Toggle = () => {
-    const [toggleDirection, setToggleDirection] = useState(0)
-    const toggleOn = () => {
-        setToggleDirection(toggleDirection === 0 ? 4 : 0)
+
+    function toggleThemeHandler(): void {
+        themeCtx.toggleThemeHandler();
+        Toggler = !Toggler;
     }
-
 
     return (
-        <ToggleCircle
-            onTap={toggleOn}
-            animate={{
-                x: toggleDirection
-            }}
-            transition={{
-                type: "spring",
-                stiffness: 500,
-                damping: 20
-            }}
-            style={{
-                background: toggleDirection ? "#FF7777" : "#FF9F29"
-            }}
-        />
+        <div
+            onClick={() => { toggleThemeHandler() }}
+            aria-label="Theme Switcher"
+            className="right-5 h-9 w-9 rounded flex items-center justify-center absolute">
+            {Toggler
+                ?(<FiSun size={26} className="text-yellow-200 hover:text-orange-low text-xl" />)
+                :(<FiMoon size={26} className="text-blue-400 hover:text-blue-600 text-xl" />)}
 
-    )
+
+        </div>
+
+    );
 }
-
-export default function Header() {
-        const themeCtx: { isDarkMode?: boolean; toggleThemeHandler: () => void } =
-            useContext(MyThemeContext);
-
-
-        function toggleThemeHandler(): void {
-            themeCtx.toggleThemeHandler();
-        }
-        return (
-            <div
-                className=""
-                onClick={toggleThemeHandler}
-            >
-                <Toggle />
-            </div>
-
-        );
-    }
-

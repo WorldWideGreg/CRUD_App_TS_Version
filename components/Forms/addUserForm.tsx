@@ -44,7 +44,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
 
   return (
     <motion.div
-      className="backdrop bg-filter bg-black bg-opacity-50 fixed inset-0 w-full h-full z-20"
+      className="backdrop bg-filter bg-black bg-opacity-70 fixed inset-0 w-full h-full z-20"
     >
       <motion.div
         className="modal fixed inset-0 z-30 transition-all duration-500 visible"
@@ -55,39 +55,41 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
       >
         <main
           onClick={OnClose}
-          className="flex justify-center items-center h-screen w-screen modal-wrapper">
+          className="flex justify-center items-center h-screen w-screen modal-wrapper  ">
           <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-white-rose dark:bg-white-green rounded z-30">
-            <div className="flex flex-row-reverse"><button onClick={OnClose}><RiCloseCircleLine size={22}></RiCloseCircleLine></button></div>
-            <div className="border-b text-center pb-3 border-gray-400">Add Teamate </div>
-            <form className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto w-5/6 gap-5 pt-5" onSubmit={handleSubmit}>
-              <div className="input-type">
-                <input
-                  type="text"
-                  name="firstName"
-                  onChange={setFormData}
-                  className="w-full px-2 py-3 focus:outline-none rounded placeholder-gray-400 dark:placeholder-gray-400 border-2 border-rose-poudre dark:border-gray-300 bg-white "
-                  placeholder="Firstname"
-                  required
-                />
-              </div>
-              <div className="input-type">
-                <input
-                  type="text"
-                  onChange={setFormData}
-                  name="lastName"
-                  className="w-full px-2 py-3 focus:outline-none rounded placeholder-gray-400 dark:placeholder-gray-400 border-2 border-rose-poudre dark:border-gray-300 bg-white"
-                  placeholder="Lastname"
-                  required
-                />
+            className="bg-white-rose text-grey-04 dark:bg-grey-02 z-30 dark:text-white-rose shadow-2xl shadow-slate-800">
+            <div className="flex flex-row-reverse dark:bg-grey-01 text-rose-400 dark:text-gray-600 pr-1 pt-1"><button onClick={OnClose}><RiCloseCircleLine size={22}></RiCloseCircleLine></button></div>
+            <div className="border-b text-center border-rose-poudre dark:bg-grey-01 pb-3 dark:border-black ModalTitle">Add Teamate </div>
+            <form className="grid grid-cols-1 mx-auto w-9/10 gap-5 p-5" onSubmit={handleSubmit}>
+              <div className="input-type flex">
+                <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-3">
+                  <input
+                    type="text"
+                    name="firstName"
+                    onChange={setFormData}
+                    className="col-start-1 px-2 py-3 focus:outline-none rounded placeholder-gray-400 dark:placeholder-gray-400 border-2 border-rose-poudre dark:border-gray-300 bg-white "
+                    placeholder="Firstname"
+                    required
+                  />
+                  <div className="input-type">
+                    <input
+                      type="text"
+                      onChange={setFormData}
+                      name="lastName"
+                      className="col-start-2 px-2 py-3 focus:outline-none rounded placeholder-gray-400 dark:placeholder-gray-400 border-2 border-rose-poudre dark:border-gray-300 bg-white"
+                      placeholder="Lastname"
+                      required
+                    />
+                  </div>
+                </div>
               </div>
               <div className="input-type">
                 <input
                   type="email"
                   onChange={setFormData}
                   name="email"
-                  className="w-full px-2 py-3 focus:outline-none rounded placeholder-gray-400 dark:placeholder-gray-400 border-2 border-rose-poudre dark:border-gray-300 bg-white "
+                  className="col-start-1 col-end-2 w-full px-2 py-3 focus:outline-none rounded placeholder-gray-400 dark:placeholder-gray-400 border-2 border-rose-poudre dark:border-gray-300 bg-white "
                   placeholder="E-mail"
                   required
                 />
@@ -106,7 +108,7 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
                   type="date"
                   onChange={setFormData}
                   name="date"
-                  className="w-full px-2 py-3 focus:outline-none rounded placeholder-gray-400 dark:placeholder-gray-400 border-2 border-rose-poudre dark:border-gray-300 bg-white "
+                  className="w-full px-2 py-3 focus:outline-none rounded placeholder-gray-400 dark:text-gray-800 border-2 border-rose-poudre dark:border-gray-300 bg-white "
                   placeholder="Birthday"
                   required
                 />
@@ -121,9 +123,9 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
                     name="status"
                     value="Active"
                     id="radioDefault1"
-                    className="form-check-input appearance-none rounded-full border-2 w-4 h-4 border-rose-200 dark:border-green-mid checked:bg-rose-400 dark:checked:bg-green-low bg-white-rose focus:ring-gray-400  focus:ring-2 cursor-pointer transition duration-200"
+                    className="form-check-input appearance-none rounded-full w-4 h-4 border-rose-200 checked:bg-rose-400 dark:checked:bg-green-low bg-white-rose focus:ring-gray-400  focus:ring-2 cursor-pointer transition duration-200"
                   />
-                  <label htmlFor="radioDefault1" className="inline-block text-gray-800 px-1">
+                  <label htmlFor="radioDefault1" className="inline-block text-gray-800 dark:text-white-rose px-1">
                     Active
                   </label>
                 </div>
@@ -136,13 +138,13 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
                     id="radioDefault2"
                     className="form-check-input appearance-none rounded-full border-2 w-4 h-4 border-rose-200 dark:border-green-mid checked:bg-rose-400 dark:checked:bg-green-low bg-white-rose focus:ring-gray-400 focus:ring-2 cursor-pointer transition duration-200"
                   />
-                  <label htmlFor="radioDefault2" className="inline-block text-gray-800 px-1 ">
+                  <label htmlFor="radioDefault2" className="inline-block text-gray-800 dark:text-white-rose px-1 ">
                     Inactive
                   </label>
                 </div>
               </div>
-              <div className="flex flex-row-reverse lg:col-start-3 lg:col-end-3 sm:col-start-1 md:col-start-2 md:col-end-2 pb-5">
-                <button className="rippleGreen bg-green-01 flex justify-center text-md w-2/3 text-white-rose px-4 py-2 rounded ">
+              <div className="flex flex-row-reverse pb-5">
+                <button className="rippleGreen bg-green-01 flex justify-center text-md md:w-1/3 sm:1/2 text-white-rose px-4 py-2 rounded ">
                   <span className=" flex gap-1">
                     <BiPlusCircle size={22}></BiPlusCircle>
                     Submit

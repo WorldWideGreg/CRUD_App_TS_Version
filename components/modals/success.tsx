@@ -27,7 +27,7 @@ export default function Success({ message }: Props) {
   return (
 
     <motion.div
-      className=" success backdrop bg-filter bg-black bg-opacity-50 fixed inset-0 w-full h-full z-20"
+      className=" success backdrop bg-filter bg-black bg-opacity-80 fixed inset-0 w-full h-full z-20"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -39,11 +39,9 @@ export default function Success({ message }: Props) {
         animate="visible"
         exit="exit">
         <main className=" flex justify-center items-center h-screen w-screen modal-wrapper">
-          <div className="bg-white-rose dark:bg-white-green w-2/5 rounded mx-auto mb-3">
+          <div className="bg-white-rose dark:bg-grey-07 dark:text-white-rose w-2/5 rounded mx-auto mb-3">
             <div className="flex text-xl font-bold justify-center gap-2 mx-auto p-2">
-              <BiCheck size={25} color="green"></BiCheck>
-              {message}
-              <BiCheck size={25} color="green"></BiCheck>
+              <BiCheck size={25} color="green"></BiCheck>{message}              
             </div>
           </div>
           <>{SuccessRmv}</>

@@ -13,24 +13,24 @@ export default function Table() {
     <div className="min-w-max userTable">
       <table className="min-w-full table-auto text-left">
         <thead>
-          <tr className="bg-white-rose border-b border-gray-300 dark:bg-green-upper dark:border-gray-700">
+          <tr className="bg-white-rose border-b border-gray-300 dark:bg-black dark:border-grey-08">
             <th className="pl-3 py-2">
-              <span className="text-gray-500 dark:text-gray-300 font-extrabold px-2">Name</span>
+              <span className="text-gray-500 dark:text-gray-100 font-extrabold px-2">Name</span>
             </th>
             <th className=" ">
-              <span className="text-gray-500 dark:text-gray-300 font-extrabold">E-mail</span>
+              <span className="text-gray-500 dark:text-gray-100 font-extrabold">E-mail</span>
             </th>
             <th className=" ">
-              <span className="text-gray-500 dark:text-gray-300 font-extrabold">Phone Number</span>
+              <span className="text-gray-500 dark:text-gray-100 font-extrabold">Phone Number</span>
             </th>
             <th className=" ">
-              <span className="text-gray-500 dark:text-gray-300 font-extrabold">Birthday</span>
+              <span className="text-gray-500 dark:text-gray-100 font-extrabold">Birthday</span>
             </th>
             <th className="">
-              <span className="text-gray-500 dark:text-gray-300 font-extrabold">Status</span>
+              <span className="text-gray-500 dark:text-gray-100 font-extrabold">Status</span>
             </th>
             <th className="">
-              <span className="text-gray-500 dark:text-gray-300 font-extrabold">Actions</span>
+              <span className="text-gray-500 dark:text-gray-100 font-extrabold">Actions</span>
             </th>
           </tr>
         </thead>
