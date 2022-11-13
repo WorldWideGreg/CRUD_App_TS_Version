@@ -2,7 +2,6 @@ import { BiEdit } from "react-icons/bi";
 import Success from "../modals/success";
 import Error from "../modals/error";
 import { UserTypes } from "../../pages/utils";
-import { dataForForms } from "../../pages/utils"
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import { getUser, getUsers, updateUser } from "../../lib/fetcher";
 import { motion } from "framer-motion";
@@ -11,7 +10,13 @@ import { RiCloseCircleLine } from 'react-icons/ri'
 import { toggleChangeAction } from "../../redux/reducer";
 import { useDispatch } from "react-redux";
 
-export default function UpdateUserForm({ formId, formData, setFormData }: dataForForms) {
+interface UpdateUserFormProps {
+  formData: UserTypes;
+  setFormData: React.ChangeEventHandler<HTMLInputElement>;
+  formId: string;
+}
+
+export default function UpdateUserForm({ formId, formData, setFormData }: UpdateUserFormProps) {
 
   const dispatch = useDispatch()
 
@@ -21,33 +26,62 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
 
   const queryClient = useQueryClient();
 
-  const { isLoading, isError, data, error } = useQuery(['users', formId], () => getUser(formId))
+  const {
+    isLoading,
+    isError,
+    data,
+    error } = useQuery(['users', formId], () => getUser(formId))
 
   const UpdateMutation = useMutation((newData: any) => updateUser(formId, newData), {
     onSuccess: async (data) => {
-      //queryClient.setQueryData('users', (old:any) => [data])
       queryClient.prefetchQuery('users', getUsers)
     }
   })
 
-  if (isLoading) return <div> Loading... </div>
-  if (isError) return <div> Error! </div>
+  if (isLoading) {
+    return (
+      <div> Loading... </div>
+    )
+  }
+  if (isError) {
+    return (
+      <div> Error! </div>
+    )
+  }
 
-  const { firstName, lastName, avatar, email, phone, date, status }: UserTypes = data
+  const {
+    firstName,
+    lastName,
+    avatar,
+    email,
+    phone,
+    date,
+    status }: UserTypes = data
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    let updated = Object.assign({}, data, formData)
-
-    console.log(updated);
-
+    const updated = {
+      ...data,
+      ...formData
+    }
     await UpdateMutation.mutate(updated)
   };
 
-  if (UpdateMutation.isLoading) return <div> Loading... </div>
-  if (UpdateMutation.isError) return <Error message={"Woops a problem occured!"} />
-  if (UpdateMutation.isSuccess) return <Success message={"Teamate Updated!"} />
+  if (UpdateMutation.isLoading) {
+    return (
+      <div> Loading... </div>
+    )
+  }
+  if (UpdateMutation.isError) {
+    return (
+      <Error message={"Woops a problem occured!"} />
+    )
+  }
+  if (UpdateMutation.isSuccess) {
+    return (
+      <Success message={"Teamate Updated!"} />
+    )
+  }
 
 
   return (
@@ -80,7 +114,7 @@ export default function UpdateUserForm({ formId, formData, setFormData }: dataFo
                     name="firstName"
                     onChange={setFormData}
                     defaultValue={firstName}
-                    className="col-start-1 px-2 py-3 focus:outline-none rounded text-gray-400 dark:text-grey-02 border-2 border-rose-poudre dark:border-gray-300 bg-white-rose"
+                    className="col-start-1 px-2 py-3 focus:outline-none rounded text-gray-400 dark:text-grey-02 border-2 border-rose-poudre dark:border-gray-300 bg-white"
                     placeholder="FirstName"
                     required
                   />

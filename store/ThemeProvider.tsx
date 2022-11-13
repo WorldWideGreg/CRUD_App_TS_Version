@@ -4,32 +4,29 @@ import React, { useState } from 'react';
 
 const MyThemeContext = createContext({
   isDarkTheme: true,
-  toggleThemeHandler: () => { },
+  toggleThemeHandler() { },
 });
 
 interface ThemePropsInterface {
   children?: JSX.Element | Array<JSX.Element>;
 }
 
-export function MyThemeContextProvider(
-  props: ThemePropsInterface
-): ReactElement {
+export function MyThemeContextProvider({ children }: ThemePropsInterface): ReactElement {
+
   const [isDarkTheme, setIsDarkTheme] = useState(true);
+
   useEffect(() => initialThemeHandler());
 
-  function isLocalStorageEmpty(): boolean {
-    return !localStorage.getItem("isDarkTheme");
-  }
-
   function initialThemeHandler(): void {
-    if (isLocalStorageEmpty()) {
+
+    const IsLocalStorageNotEmpty = localStorage.getItem("isDarkTheme")
+
+    if (!IsLocalStorageNotEmpty) {
       localStorage.setItem("isDarkTheme", `true`);
       document?.querySelector("body")?.classList.add("dark");
       setIsDarkTheme(true);
     } else {
-      const isDarkTheme: boolean = JSON.parse(
-        localStorage.getItem("isDarkTheme")!
-      );
+      const isDarkTheme: boolean = JSON.parse(IsLocalStorageNotEmpty);
       isDarkTheme && document?.querySelector("body")?.classList.add("dark");
       setIsDarkTheme(() => {
         return isDarkTheme;
@@ -41,26 +38,16 @@ export function MyThemeContextProvider(
     const isDarkTheme: boolean = JSON.parse(
       localStorage.getItem("isDarkTheme")!
     );
+    console.log(isDarkTheme)
     setIsDarkTheme(!isDarkTheme);
-    toggleDarkClassToBody();
-    setValueToLocalStorage();
-
-  }
-
-  function toggleDarkClassToBody(): void {
     document?.querySelector("body")?.classList.toggle("dark");
-  }
-
-  function setValueToLocalStorage(): void {
     localStorage.setItem("isDarkTheme", `${!isDarkTheme}`);
   }
 
   return (
-    <MyThemeContext.Provider value={{ isDarkTheme: true, toggleThemeHandler }}>
-      {props.children}
+    <MyThemeContext.Provider value={{ isDarkTheme, toggleThemeHandler }}>
+      {children}
     </MyThemeContext.Provider>
   );
 }
-
-
 export default MyThemeContext;

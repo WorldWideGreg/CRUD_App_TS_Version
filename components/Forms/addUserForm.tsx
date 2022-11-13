@@ -4,13 +4,17 @@ import Success from "../modals/success";
 import { UserTypes } from "../../pages/utils";
 import { useQueryClient, useMutation } from 'react-query'
 import { addUser, getUsers } from "../../lib/fetcher"
-import { dataForForms } from "../../pages/utils"
 import { motion } from 'framer-motion'
 import { gifYouUp } from "../modals/ModalAnimations";
 import { toggleChangeAction } from "../../redux/reducer";
 import { useDispatch } from "react-redux";
 
-export default function AddUserForm({ formData, setFormData }: dataForForms) {
+interface AddUserFormProps {
+  formData: UserTypes;
+  setFormData: React.ChangeEventHandler<HTMLInputElement>;
+}
+
+export default function AddUserForm({ formData, setFormData }: AddUserFormProps) {
 
   const dispatch = useDispatch()
 
@@ -26,21 +30,48 @@ export default function AddUserForm({ formData, setFormData }: dataForForms) {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (Object.keys(formData).length == 0) return console.log("No data in form");
-    let { firstName, lastName, email, phone, date, status }: UserTypes = formData;
+    if (Object.keys(formData).length == 0) {
+      return (
+        console.log("No data in form"));
+    }
+
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      date,
+      status }: UserTypes = formData;
 
     const model: UserTypes = {
-      firstName, lastName,
+      firstName,
+      lastName,
       avatar: `https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 10)}.jpg`,
-      email, phone, date, status: status ?? "Active"
+      email,
+      phone,
+      date,
+      status: status ?? "Active"
     }
     addMutation.mutate(model)
-    console.log(JSON.stringify(formData));
   };
 
-  if (addMutation.isLoading) return <div> Loading... </div>
-  if (addMutation.isError) return <Success message={"Woops a problem occured!"} />
-  if (addMutation.isSuccess) return <Success message={"Welcome new teamate"} />
+  if (addMutation.isLoading) {
+    return (
+      <div> Loading... </div>
+    )
+  }
+
+  if (addMutation.isError) {
+    return (
+      <Success message={"Woops a problem occured!"} />
+    )
+  }
+
+  if (addMutation.isSuccess) {
+    return (
+      <Success message={"Welcome new teamate"} />
+    )
+  }
 
   return (
     <motion.div

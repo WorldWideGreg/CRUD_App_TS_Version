@@ -75,10 +75,12 @@ export default function Home() {
             </div>
 
             <div >
-              {deleteId ? DeleteComponent({ deleteHandler, cancelHandler }) : <></>}
+              {deleteId &&
+                DeleteComponent({ deleteHandler, cancelHandler })}
             </div>
 
-            {visible ? <Form /> : <></>}
+            {visible &&
+              <Form />}
 
 
             <div className="overflow-auto w-11/12 mx-auto bg-white-rose">

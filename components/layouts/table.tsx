@@ -5,9 +5,22 @@ import { UserTypes } from "../../pages/utils";
 
 export default function Table() {
 
-  const { isLoading, isError, data, error } = useQuery('users', getUsers)
-  if (isLoading) return <div>Loading your perfect team...</div>
-  if (isError) return <div><>Error:{error}</></div>
+  const {
+    isLoading,
+    isError,
+    data,
+    error } = useQuery('users', getUsers)
+
+  if (isLoading) {
+    return (
+      <div>Loading your perfect team...</div>
+    )
+  }
+  if (isError) {
+    return (
+      <div><>Error:{error}</></div>
+    )
+  }
 
   return (
     <div className="min-w-max userTable">
@@ -36,7 +49,8 @@ export default function Table() {
         </thead>
         <tbody>
           {
-            data.map((UserData: UserTypes, id: string) => <UserRow {...UserData} key={id} />)
+            data.map((UserData: UserTypes, id: string) =>
+              <UserRow {...UserData} key={id} />)
           }
         </tbody>
       </table>

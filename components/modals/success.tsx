@@ -5,10 +5,10 @@ import { BiCheck } from 'react-icons/bi'
 import { toggleChangeAction } from "../../redux/reducer";
 import { useDispatch } from "react-redux";
 
-type Props = {
+type SuccessProps = {
   message: string;
 }
-export default function Success({ message }: Props) {
+export default function Success({ message }: SuccessProps) {
 
   const dispatch = useDispatch()
 
@@ -17,12 +17,11 @@ export default function Success({ message }: Props) {
   }
 
   const SuccessRmv = useEffect(() => {
-    let myDiv = document.querySelector(".success");
+    const myDiv = document.querySelector(".success");
     if (myDiv) {
-      setTimeout(OnClose
-        , 2000)
-    };
-  })
+      setTimeout(OnClose, 2000)
+    }
+  },[])
 
   return (
 
@@ -41,7 +40,7 @@ export default function Success({ message }: Props) {
         <main className=" flex justify-center items-center h-screen w-screen modal-wrapper">
           <div className="bg-white-rose dark:bg-grey-07 dark:text-white-rose w-2/5 rounded mx-auto mb-3">
             <div className="flex text-xl font-bold justify-center gap-2 mx-auto p-2">
-              <BiCheck size={25} color="green"></BiCheck>{message}              
+              <BiCheck size={25} color="green"></BiCheck>{message}
             </div>
           </div>
           <>{SuccessRmv}</>
