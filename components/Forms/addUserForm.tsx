@@ -92,7 +92,7 @@ export default function AddUserForm({ formData, setFormData }: AddUserFormProps)
             className="bg-white-rose text-grey-04 dark:bg-grey-02 z-30 dark:text-white-rose shadow-2xl shadow-slate-800">
             <div className="flex flex-row-reverse dark:bg-grey-01 text-rose-400 dark:text-gray-600 pr-1 pt-1"><button onClick={OnClose}><RiCloseCircleLine size={22}></RiCloseCircleLine></button></div>
             <div className="border-b text-center border-rose-poudre dark:bg-grey-01 pb-3 dark:border-black ModalTitle">Add Teamate </div>
-            <form className="grid grid-cols-1 mx-auto w-9/10 gap-5 p-5" onSubmit={handleSubmit}>
+            <form className="grid grid-cols-1 mx-auto w-9/10 gap-5 p-5 dark:text-black" onSubmit={handleSubmit}>
               <div className="input-type flex">
                 <div className="grid md:grid-cols-2 sm:grid-cols-1 gap-3">
                   <input
