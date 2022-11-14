@@ -2,13 +2,12 @@ import { createContext, ReactElement, useEffect } from "react";
 import React, { useState } from 'react';
 
 
-const MyThemeContext = createContext({
+const MyThemeContext = createContext<{ isDarkTheme: boolean, toggleThemeHandler?: () => void }>({
   isDarkTheme: true,
-  toggleThemeHandler() { },
 });
 
 interface ThemePropsInterface {
-  children?: JSX.Element | Array<JSX.Element>;
+  children?: React.ReactNode | Array<React.ReactNode>;
 }
 
 export function MyThemeContextProvider({ children }: ThemePropsInterface): ReactElement {
@@ -28,17 +27,11 @@ export function MyThemeContextProvider({ children }: ThemePropsInterface): React
     } else {
       const isDarkTheme: boolean = JSON.parse(IsLocalStorageNotEmpty);
       isDarkTheme && document?.querySelector("body")?.classList.add("dark");
-      setIsDarkTheme(() => {
-        return isDarkTheme;
-      });
+      setIsDarkTheme(isDarkTheme);
     }
   }
 
   function toggleThemeHandler(): void {
-    const isDarkTheme: boolean = JSON.parse(
-      localStorage.getItem("isDarkTheme")!
-    );
-    console.log(isDarkTheme)
     setIsDarkTheme(!isDarkTheme);
     document?.querySelector("body")?.classList.toggle("dark");
     localStorage.setItem("isDarkTheme", `${!isDarkTheme}`);

@@ -24,7 +24,7 @@ function Error({ message }: ErrorProps) {
     if (myDiv) {
       setTimeout(OnClose, 2000)
     };
-  })
+  },[])
 
   return (
     <motion.div
