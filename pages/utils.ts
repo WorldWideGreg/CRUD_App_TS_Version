@@ -9,7 +9,7 @@ export type UserTypes = {
     firstName?: string
     lastName?: string
     name?: string
-    avatar: string
+    avatar?: string
     email: string
     phone: string
     date: string

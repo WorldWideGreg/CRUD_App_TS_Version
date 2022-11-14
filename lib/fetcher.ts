@@ -1,5 +1,8 @@
 import { UserTypes } from "../pages/utils"
+
 const LOCAL_URL = 'http://localhost:3000'
+
+
 //all users
 export const getUsers = async () => {
    const response =  await fetch(`${LOCAL_URL}/api/users/`) 

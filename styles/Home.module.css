@@ -115,28 +115,3 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: #222;
-  }
-  .code {
-    background: #111;
-  }
-  .logo img {
-    filter: invert(1);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  .card,
-  .footer {
-    border-color: rgb(68, 68, 68);
-  }
-  .code {
-    background: rgb(170, 170, 170);
-  }
-  .logo img {
-    filter: invert(1);
-  }
-}

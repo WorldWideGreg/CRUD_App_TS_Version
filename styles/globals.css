@@ -1,11 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-*>*{
-    font-family: 'Poppins', sans-serif;
+@font-face {
+  font-family: "Cinzel";
+  src: url("../public/fonts/CinzelDecorative-Regular.ttf");
 }
+@font-face {
+  font-family: "PoorStory";
+  src: url("../public/fonts/PoorStory-Regular.ttf");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../public/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: url("../public/fonts/OpenSans-Regular.ttf");
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -13,7 +27,33 @@ a {
 
 * {
   box-sizing: border-box;
-   
+}
+
+h1 {
+  font-family: "Cinzel", sans-serif;
+}
+.nature {
+  background-image: "./public/images/nature.png";
+}
+.sky {
+  background-image: "./public/images/sky.png";
+}
+
+.footerFont {
+  font-family: "Montserrat";
+}
+
+.userTable {
+  font-family: "Montserrat";
+}
+.userRow {
+  font-family: "OpenSans";
+}
+
+.ModalTitle{
+  font-family: "Cinzel", sans-serif;
+  font-size: x-large;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +62,50 @@ a {
   }
   body {
     color: black;
-    background: #FFE2E2;    
+  }
+
+  .rippleBlue {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .rippleBlue:hover {
+    background: #ef5b0c radial-gradient(circle, transparent 1%, #ef5b0c 1%)
+      center/15000%;
+  }
+  .rippleBlue:active {
+    background-color: #ff9f29;
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+  /* Ripple effect green btn */
+  .rippleGreen {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .rippleGreen:hover {
+    background: #749f82 radial-gradient(circle, transparent 1%, #749f82 1%)
+      center/15000%;
+  }
+  .rippleGreen:active {
+    background-color: #bcead5;
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+  /* Ripple effect red btn */
+  .rippleRed {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .rippleRed:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+      center/15000%;
+  }
+  .rippleRed:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 
@@ -32,8 +115,73 @@ a {
   }
   body {
     color: black;
-    background: #FFE2E2;    
   }
-}  
 
- 
+  .rippleBlue {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .rippleBlue:hover {
+    background: #2049ac radial-gradient(circle, transparent 1%, #2049ac 1%)
+      center/15000%;
+  }
+  .rippleBlue:active {
+    background-color: #446dcf;
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+  /* Ripple effect green btn */
+  .rippleGreen {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .rippleGreen:hover {
+    background: #4abd8c radial-gradient(circle, transparent 1%, #4abd8c 1%)
+      center/15000%;
+  }
+  .rippleGreen:active {
+    background-color: #53d39c;
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+  /* Ripple effect red btn */
+  .rippleRed {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .rippleRed:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+      center/15000%;
+  }
+  .rippleRed:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+  }
+}
+
+/* Ripple effect blue btn */
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: #8785a2;
+  color: #f6f6f6;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  top: 100%;
+  right: 50%;
+  opacity: 0;
+  transition: opacity 0.8s;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+  visibility: visible;
+}
