@@ -1,3 +1,5 @@
+#Warning this version has a JSON5 Vulnerability not patched yet#  
+follow instructions there : https://github.com/advisories/GHSA-9c47-m6qq-7p4h
 
 # CRUD App structure. Techs: Next.Js, React - Typescript, TailwindCSS, MongoDB.
 It's a simple web application, mobile first, example for doing some team management.
